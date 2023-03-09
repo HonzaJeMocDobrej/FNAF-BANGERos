@@ -1,0 +1,50 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+}
+#bgImg{
+    height: 100%;
+    background-image: url(../img/OfficeEmpty.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+
+}
+#mainContent{
+    height: 100%;
+}
+#lightBtnL, #lightBtnR, #doorBtnL, #doorBtnR{
+    background-color: blue;
+    height: 90px;
+    width: 70px;
+    position:fixed;
+    cursor: pointer;
+    /* background: transparent; */
+}
+#lightBtnL{
+    left: 9%;
+    top: 66%;
+    transform: skewY(-10deg);
+    transform: rotate(-3deg);
+}
+#lightBtnR{
+    right: 14%;
+    top: 66%;
+    transform: skewY(-10deg);
+    transform: rotate(3deg);
+}
+#doorBtnL{
+    left: 9%;
+    top: 52%;
+    transform: skew(-10deg);
+    transform: rotate(-3deg);
+}
+#doorBtnR{
+    right: 14%;
+    top: 52%;
+    transform: skew(-10deg);
+    transform: rotate(3deg);
+}
