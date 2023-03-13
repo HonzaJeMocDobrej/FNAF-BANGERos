@@ -22,7 +22,7 @@ html, body{
     width: 70px;
     position:fixed;
     cursor: pointer;
-    /* background: transparent; */
+    background: transparent;
 }
 #lightBtnL{
     left: 9%;
