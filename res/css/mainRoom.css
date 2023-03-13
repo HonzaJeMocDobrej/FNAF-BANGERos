@@ -48,3 +48,16 @@ html, body{
     transform: skew(-10deg);
     transform: rotate(3deg);
 }
+
+#camButton{
+    width: 40%;
+    height: 60px;
+    cursor: pointer;
+    margin-top: 45%;
+    margin-left: 30%;
+
+    background-color: aqua;
+    background-image: url(../img/btnNotRemovedBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
