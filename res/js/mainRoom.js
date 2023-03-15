@@ -4,13 +4,12 @@ let doorBtnL = document.getElementById("doorBtnL");
 let doorBtnR = document.getElementById("doorBtnR");
 let bgImg = document.getElementById("bgImg");
 
-
+let lightVisibleR = 0;
 let lightVisibleL = 0;
 let doorVisibleL = 0;
+let doorVisibleR = 0;
 
 let lightDivL = document.createElement("div");
-
-
 let lightDivR = document.createElement("div");
 let doorDivL = document.createElement("div");
 let doorDivR = document.createElement("div");
@@ -23,45 +22,60 @@ buttArr.forEach(eachButt => {
 
 
 lightBtnR.onmousedown = () => {
-    lightDivR.style.backgroundColor = "yellow";
-    lightDivR.style.right = "330px";
-    lightDivR.style.opacity = "0.5";
-    divParams(lightDivR, "-30px", "170px", "skewY(-20deg)");
-    bgImg.append(lightDivR);
+    if (doorVisibleR == 0) {
+        lightDivR.style.backgroundColor = "yellow";
+        lightDivR.style.right = "330px";
+        lightDivR.style.opacity = "0.5";
+        divParams(lightDivR, "-30px", "170px", "skewY(-20deg)");
+        bgImg.append(lightDivR);
+        lightVisibleR++;
+    }
 }
 
 lightBtnR.onmouseup = () => {
     lightDivR.remove();
+    lightVisibleR = 0;
 }
 
 lightBtnL.onmousedown = () => {
     
-    lightDivL.style.backgroundColor = "yellow";
-    lightDivL.style.left = "240px"
-    lightDivL.style.opacity = "0.5";
-    divParams(lightDivL, "-40px", "180px", );
-    bgImg.append(lightDivL);
+    if (doorVisibleL == 0) {
+        lightDivL.style.backgroundColor = "yellow";
+        lightDivL.style.left = "240px"
+        lightDivL.style.opacity = "0.5";
+        divParams(lightDivL, "-60px", "180px", "skewY(30deg)");
+        lightDivL.style.height = "830px";
+        bgImg.append(lightDivL);
+        lightVisibleL++;
+    }
     
 }
 
 lightBtnL.onmouseup = () => {
     lightDivL.remove();
+    lightVisibleL = 0;
 }
 
-doorBtnR.onmousedown = () => {
-    doorDivR.style.backgroundColor = "yellow";
-    doorDivR.style.right = "330px";
-    divParams(doorDivR, "-30px", "170px");
-    bgImg.append(doorDivR);
-}
-
-doorBtnR.onmouseup = () => {
-    doorDivR.remove();
+doorBtnR.onclick = () => {
+    if (doorVisibleR == 0 && lightVisibleR == 0) {
+        doorDivR.style.backgroundImage = "url('../res/img/doorR.png')";
+        doorDivR.style.backgroundRepeat = "no-repeat";
+        doorDivR.style.backgroundSize = "cover";
+        doorDivR.style.right = "330px";
+        divParams(doorDivR, "-40px", "170px");
+        doorDivR.style.height = "900px"
+        bgImg.append(doorDivR);
+        doorVisibleR++;
+    }
+    else if (doorVisibleR == 1) {
+        doorDivR.remove();
+        doorVisibleR = 0;
+    }
 }
 
 doorBtnL.onclick = () => {
 
-    if (doorVisibleL == 0) {
+    if (doorVisibleL == 0 && lightVisibleL == 0) {
         doorDivL.style.backgroundImage = "url('../res/img/door.png')";
         doorDivL.style.backgroundRepeat = "no-repeat";
         doorDivL.style.backgroundSize = "cover";
@@ -77,9 +91,7 @@ doorBtnL.onclick = () => {
     
 }
 
-// doorBtnL.onmouseup = () => {
-//     doorDivL.remove();
-// }
+
 
 function divParams(div, y, width, transform) {
     div.style.position = "fixed";
