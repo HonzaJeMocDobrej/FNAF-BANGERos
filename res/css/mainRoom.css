@@ -2,53 +2,50 @@ html, body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    height: 100%;
+    background-color: black;
 }
-#bgImg{
-    height: 100%;
-    background-image: url(../img/OfficeEmpty.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: fixed;
-    width: 100%;
 
-}
 #mainContent{
-    height: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
+
+#officeImg{
+    width: 100vw;
+    margin: auto;
+}
+ 
 #lightBtnL, #lightBtnR, #doorBtnL, #doorBtnR{
     background-color: blue;
-    height: 90px;
-    width: 70px;
-    position:fixed;
+    height: 12%;
+    width: 3%;
+    z-index: 2;
+    position:absolute;
     cursor: pointer;
     background: transparent;
 }
 #lightBtnL{
-    left: 9%;
-    top: 66%;
-    transform: skewY(-10deg);
-    transform: rotate(-3deg);
+    left: 1.7%;
+    top: 57%;
+
 }
 #lightBtnR{
-    right: 14%;
-    top: 66%;
-    transform: skewY(-10deg);
-    transform: rotate(3deg);
+    right: 2.7%;
+    top: 57%;
+
 }
 #doorBtnL{
-    left: 9%;
-    top: 52%;
-    transform: skew(-10deg);
-    transform: rotate(-3deg);
+    left: 1.7%;
+    top: 45%;
+
 }
 #doorBtnR{
-    right: 14%;
-    top: 52%;
-    transform: skew(-10deg);
-    transform: rotate(3deg);
-}
+    right: 2.7%;
+    top: 45%;
 
+}
+/* 
 #camButton{
     width: 40%;
     height: 60px;
@@ -60,4 +57,4 @@ html, body{
     background-image: url(../img/btnNotRemovedBg.png);
     background-repeat: no-repeat;
     background-size: cover;
-}
+}  */
