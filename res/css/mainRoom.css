@@ -1,51 +1,75 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: black;
-    user-select: none;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  user-select: none;
 }
 
-#mainContent{
-    height: 100vh;
-    display: flex;
-    align-items: center;
+#mainContent {
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
-#officeImg{
-    width: 100vw;
-    margin: auto;
+#lightBtnL,
+#lightBtnR,
+#doorBtnL,
+#doorBtnR {
+  background-color: blue;
+  height: 12%;
+  width: 3%;
+  z-index: 2;
+  position: absolute;
+  cursor: pointer;
+  background: transparent;
 }
- 
-#lightBtnL, #lightBtnR, #doorBtnL, #doorBtnR{
-    background-color: blue;
-    height: 12%;
-    width: 3%;
-    z-index: 2;
-    position:absolute;
-    cursor: pointer;
-    background: transparent;
+#lightBtnL {
+  left: 1.7%;
+  top: 57%;
 }
-#lightBtnL{
-    left: 1.7%;
-    top: 57%;
+#lightBtnR {
+  right: 2.7%;
+  top: 57%;
+}
+#doorBtnL {
+  left: 1.7%;
+  top: 45%;
+}
+#doorBtnR {
+  right: 2.7%;
+  top: 45%;
+}
 
+#camera {
+  width: 33%;
+  border-color: white;
+  color: white;
+  background-color: grey;
+  border: 1px solid;
+  height: 50px;
+  position: absolute;
+  cursor: default;
+  top: 90%;
+  left: 33%;
+  right: 33%;
+  font-size: 250%;
+  text-align: center;
 }
-#lightBtnR{
-    right: 2.7%;
-    top: 57%;
 
+#camImg {
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  display: none;
 }
-#doorBtnL{
-    left: 1.7%;
-    top: 45%;
 
+#officeImg {
+  width: 100vw;
+  margin: auto;
 }
-#doorBtnR{
-    right: 2.7%;
-    top: 45%;
 
-}
 /* 
 #camButton{
     width: 40%;
