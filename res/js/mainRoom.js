@@ -9,6 +9,8 @@ let camImg = document.getElementById("camImg");
 let invBtn1 = document.getElementById("invBtn1");
 let invBtn2 = document.getElementById("invBtn2");
 let invBtn3 = document.getElementById("invBtn3");
+let freddynose = document.getElementById("freddynose");
+let audio = new Audio("../res/sound/honk.mp3");
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -172,24 +174,21 @@ function bgRD() {
   console.log(doorVisibleR);
 }
 
+camera.onclick = () => {
+  if (officecam == 0) {
+    officeImg.style.display = "none";
+    mapContainer.style.display = "block";
+    camImg.style.display = "block";
+    officecam = 1;
+  } else if (officecam == 1) {
+    officeImg.style.display = "block";
+    mapContainer.style.display = "none";
+    camImg.style.display = "none";
+    officecam = 0;
+  }
 
-camera.onmouseover = () => {
-    if (officecam == 0) {
-        officeImg.style.display = "none";
-        mapContainer.style.display = "block";
-        camImg.style.display = "block";
-        officecam = 1;
-      }
-      
-      else if (officecam == 1) {
-        officeImg.style.display = "block";
-        mapContainer.style.display = "none";
-        camImg.style.display = "none";
-        officecam = 0;
-    }
-    
-    console.log(officecam);
-}
+  console.log(officecam);
+};
 
 function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
   mainBtn.onclick = () => {
@@ -198,18 +197,13 @@ function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
     mainBtn.style.opacity = "0.7";
     otherBtn1.style.backgroundColor = "transparent";
     otherBtn2.style.backgroundColor = "transparent";
-  }
+  };
 }
-
 
 changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
 changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
 changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
 
-
-  
-
-
-
-
-
+freddynose.onclick = () => {
+audio.play();
+};

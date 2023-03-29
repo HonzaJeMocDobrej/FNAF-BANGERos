@@ -114,6 +114,20 @@ body {
   left: 79%;
 }
 
+#freddynose {
+  cursor:crosshair;
+width:2%;
+height:2%;
+position:absolute;
+left:41%;
+top:34%;
+
+}
+
+
+
+
+
 /* 
 #camButton{
     width: 40%;
