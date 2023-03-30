@@ -9,9 +9,9 @@ let officeImg = document.getElementById("officeImg");
 let camera = document.getElementById("camera");
 let mapContainer = document.getElementById("mapContainer");
 let camImg = document.getElementById("camImg");
-let invBtn1 = document.getElementById("invBtn1");
-let invBtn2 = document.getElementById("invBtn2");
-let invBtn3 = document.getElementById("invBtn3");
+export let invBtn1 = document.getElementById("invBtn1");
+export let invBtn2 = document.getElementById("invBtn2");
+export let invBtn3 = document.getElementById("invBtn3");
 let freddynose = document.getElementById("freddynose");
 let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
@@ -255,41 +255,15 @@ function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
   };
 }
  
-changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
-changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
-changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
+// changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
+// changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
+// changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
 
 // changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
 // changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
 // changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
 
-invBtn1.onclick = () => {
-if (randomRoom == 1) {
-    console.log("Banger")
-    camImg.src = "res/img/StageHonzak.png";
-  }
-else {
-    camImg.src = "res/img/emptyStage.png";
-  }
-}
 
-invBtn2.onclick = () => {
-  if (randomRoom == 2) {
-    camImg.src = "res/img/LHallHonzak.png"
-  }
-  else{
-    camImg.src = "res/img/LHallEmpty.png"
-  }
-}
-
-invBtn3.onclick = () => {
-  if (randomRoom == 3) {
-    camImg.src = "res/img/RHallHonzak.png"
-  }
-  else{
-    camImg.src = "res/img/RHallEmpty.png"
-  }
-}
 
 freddynose.onclick = () => {
   audio.play(); 
