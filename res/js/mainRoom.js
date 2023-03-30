@@ -1,3 +1,5 @@
+import animMov from "./animMov.js";
+
 let lightBtnL = document.getElementById("lightBtnL");
 let lightBtnR = document.getElementById("lightBtnR");
 let doorBtnL = document.getElementById("doorBtnL");
@@ -207,3 +209,5 @@ changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
 freddynose.onclick = () => {
 audio.play();
 };
+
+animMov();
