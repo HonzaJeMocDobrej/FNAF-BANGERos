@@ -1,7 +1,8 @@
+export let randomRoom;
+export let roomVisible;
+
 export default function animMov() {
-    let interTime = 5000;
     let random;
-    let clearIntBool = 0;
     let interval;
     
     
@@ -10,20 +11,21 @@ export default function animMov() {
                 
                 random = Math.floor(Math.random() * 3) + 1;
                 if (random == 1) {
-                    interval = setTimeout(unvIntFunc, 1000);
-                    console.log(1)
+                    interval = setTimeout(unvIntFunc, 5000);
 
                 }
                 
                 else if (random == 2) {
-                    interval = setTimeout(unvIntFunc, 2000);
-                    console.log(2)
+                    interval = setTimeout(unvIntFunc, 15000);
                 }
                 
                 else if (random == 3) {
-                    interval = setTimeout(unvIntFunc, 3000);
-                    console.log(3)
+                    interval = setTimeout(unvIntFunc, 25000);
                 }
+
+                randomRoom = Math.floor(Math.random() * 3) + 1;
+                console.log("Random: " + random)
+                console.log("Random room: " + randomRoom)
          
         }
 

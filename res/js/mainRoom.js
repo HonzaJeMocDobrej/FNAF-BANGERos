@@ -1,4 +1,5 @@
 import animMov from "./animMov.js";
+import { randomRoom, roomVisible } from "./animMov.js";
 
 let lightBtnL = document.getElementById("lightBtnL");
 let lightBtnR = document.getElementById("lightBtnR");
@@ -34,7 +35,7 @@ function reduceEnergy() {
 }
 
 window.onload = function () {
-  setInterval(reduceEnergy, 2000);
+  // setInterval(reduceEnergy, 200000000000);
 };
 
 lightBtnL.onclick = () => {
@@ -245,9 +246,37 @@ function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
   };
 }
 
-changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
-changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
-changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
+// changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
+// changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
+// changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
+
+invBtn1.onclick = () => {
+if (randomRoom == 1) {
+    console.log("Banger")
+    camImg.src = "res/img/StageHonzak.png";
+  }
+else {
+    camImg.src = "res/img/emptyStage.png";
+  }
+}
+
+invBtn2.onclick = () => {
+  if (randomRoom == 2) {
+    camImg.src = "res/img/LHallHonzak.png"
+  }
+  else{
+    camImg.src = "res/img/LHallEmpty.png"
+  }
+}
+
+invBtn3.onclick = () => {
+  if (randomRoom == 3) {
+    camImg.src = "res/img/RHallHonzak.png"
+  }
+  else{
+    camImg.src = "res/img/RHallEmpty.png"
+  }
+}
 
 freddynose.onclick = () => {
   audio.play();
