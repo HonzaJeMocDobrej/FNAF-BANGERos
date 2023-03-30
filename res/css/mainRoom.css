@@ -58,6 +58,14 @@ body {
   text-align: center;
 }
 
+#playagain {
+left:40%;
+top:40%;
+font-size:50px;
+color:white;
+display:none;
+}
+
 #camImg {
   width: 100vw;
   height: 100vh;
@@ -127,7 +135,14 @@ top:34%;
 
 #energyindicator {
 position:absolute;
-
+  
+}
+#backgroundvideo {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+ display:none;
 }
 
 

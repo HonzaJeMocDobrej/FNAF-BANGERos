@@ -10,7 +10,9 @@ let invBtn1 = document.getElementById("invBtn1");
 let invBtn2 = document.getElementById("invBtn2");
 let invBtn3 = document.getElementById("invBtn3");
 let freddynose = document.getElementById("freddynose");
+let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
+const video = document.getElementById('backgroundvideo');
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -20,19 +22,26 @@ let officecam = 0;
 let energy = 100;
 let energyDrain = 1;
 
+
+
 function reduceEnergy() {
   energy -= energyDrain;
   console.log("Energy reduced by "+energyDrain+". Current energy:", energy);
   if (energy <= 0) {
-
-
-
+    officeImg.src = "./res/videos/project.mp4";  
+clearInterval(reduceEnergy);
+video.play();
+camera.style.display = "none";
+backgroundvideo.style.display = "block";
+camImg.style.display = "none";
+mapContainer.style.display = "none";
+playagain.style.display ="block";
 
   }
 }
 
 window.onload = function () {
-  setInterval(reduceEnergy, 2000);
+  setInterval(reduceEnergy, 9600);
 };
 
 lightBtnL.onclick = () => {
@@ -242,13 +251,13 @@ function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
     otherBtn2.style.backgroundColor = "transparent";
   };
 }
-
+ 
 changeCamAtr(invBtn1, invBtn2, invBtn3, "res/img/StageHonzak.png");
 changeCamAtr(invBtn2, invBtn1, invBtn3, "res/img/LHallEmpty.png");
 changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
 
 freddynose.onclick = () => {
-  audio.play();
+  audio.play(); 
 };
 
 
