@@ -16,7 +16,9 @@ let freddynose = document.getElementById("freddynose");
 let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById('backgroundvideo');
-const energyindicator = document.getElementById('energyindicator');
+const video2 = document.getElementById('backgroundvideo2');
+const time = document.getElementById('time');
+
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -25,14 +27,21 @@ let doorVisibleR = 0;
 let officecam = 0;
 let energy = 100;
 let energyDrain = 1;
+let time1 = 0;
 
 
+function death () {
+  window.location.href = "index.html"
+  
+}
 
 function reduceEnergy() {
   energy -= energyDrain;
   console.log("Energy reduced by "+energyDrain+". Current energy:", energy);
   energyindicator.innerHTML = energy;
   if (energy <= 0) {
+    energyindicator.style.display = "none";
+time.style.display = "none";
     officeImg.src = "./res/videos/project.mp4";  
 clearInterval(reduceEnergy);
 video.play();
@@ -41,15 +50,32 @@ backgroundvideo.style.display = "block";
 camImg.style.display = "none";
 mapContainer.style.display = "none";
 playagain.style.display ="block";
-
-
-
+setInterval(death,52000);
   }
 }
+function reducetime(){
+time1 += 1;
+time.innerHTML = `${time1} AM`;
+if (time1 >= 6) {
+  officeImg.src = "./res/videos/sixAM.mp4";
+  video2.play(); 
+  camera.style.display = "none";
+  backgroundvideo2.style.display = "block";
+  camImg.style.display = "none";
+  mapContainer.style.display = "none";
+energyindicator.style.display = "none";
+time.style.display = "none";
+
+
+}
+
+
+} 
 
 window.onload = function () {
   setInterval(reduceEnergy, 9600);
-};
+  setInterval(reducetime, 45000);
+}; 
 
 lightBtnL.onclick = () => {
   bgLL();
