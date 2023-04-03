@@ -132,14 +132,19 @@ top:34%;
 
 }
 
-
+#time {
+position:absolute;
+  top:10%;
+  color:white;
+left:90%;
+font-size:50px;
+}
 #energyindicator {
 position:absolute;
   top:80%;
   color:white;
 left:10%;
 font-size:50px;
-
 }
 #backgroundvideo {
   position: fixed;
@@ -147,6 +152,20 @@ font-size:50px;
   height: 100vh;
   margin: auto;
  display:none;
+}
+#backgroundvideo2 {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+ display:none;
+}
+#start {
+position:absolute;
+color:white;
+left:20%;
+top:40%;
+font-size:70px;
 }
 
 
