@@ -135,7 +135,11 @@ top:34%;
 
 #energyindicator {
 position:absolute;
-  
+  top:80%;
+  color:white;
+left:10%;
+font-size:50px;
+
 }
 #backgroundvideo {
   position: fixed;

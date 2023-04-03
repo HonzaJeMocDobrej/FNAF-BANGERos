@@ -16,6 +16,7 @@ let freddynose = document.getElementById("freddynose");
 let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById('backgroundvideo');
+const energyindicator = document.getElementById('energyindicator');
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -30,6 +31,7 @@ let energyDrain = 1;
 function reduceEnergy() {
   energy -= energyDrain;
   console.log("Energy reduced by "+energyDrain+". Current energy:", energy);
+  energyindicator.innerHTML = energy;
   if (energy <= 0) {
     officeImg.src = "./res/videos/project.mp4";  
 clearInterval(reduceEnergy);
@@ -40,11 +42,13 @@ camImg.style.display = "none";
 mapContainer.style.display = "none";
 playagain.style.display ="block";
 
+
+
   }
 }
 
 window.onload = function () {
-  // setInterval(reduceEnergy, 200000000000);
+  setInterval(reduceEnergy, 9600);
 };
 
 lightBtnL.onclick = () => {
