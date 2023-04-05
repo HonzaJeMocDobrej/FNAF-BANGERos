@@ -28,9 +28,9 @@
             <img src="./res/img/StageHonzak.png" alt="" id="camImg">
             <div id="mapContainer">
                 <img src="./res/img/Map.png" alt="" id="map">
-                <div id="invBtn1"></div>
-                <div id="invBtn2"></div>
-                <div id="invBtn3"></div>
+                <div class="invBtn" class="active" data-inRoom="1" data-imgEmpty="res/img/emptyStage.png" data-img="res/img/StageHonzak.png"></div>
+                <div class="invBtn" data-inRoom="2" data-imgEmpty="res/img/LHallEmpty.png" data-img="res/img/LHallHonzak.png"></div>
+                <div class="invBtn" data-inRoom="3" data-imgEmpty="res/img/RHallEmpty.png" data-img="res/img/RHallHonzak.png"></div>
             </div>
         </div>
        
@@ -44,6 +44,7 @@
         </div> 
     </div>
 </div>
-    <script type="module" src="./res/js/mainRoom.js"></script>
+    <script type="module" src="res/js/mainRoom.js"></script>
+    <script type="module" src="./res/js/animRoom.js"></script>
 </body>
 </html>

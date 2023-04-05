@@ -92,7 +92,7 @@ display:none;
   margin: auto;
 }
 
-#invBtn1, #invBtn2, #invBtn3{
+.invBtn{
   position: absolute;
   height: 15%;
   background-color: aqua;
@@ -101,25 +101,30 @@ display:none;
   background: transparent;  
 }
 
-#invBtn1{
+.active {
+  background-color: grey;
+}
+
+#mapContainer>:nth-child(2){
   top: 11%;
   left: 53%;
-  background-color: grey;
   opacity: 0.7;
 }
 
-#invBtn2{
+#mapContainer>:nth-child(3){
   top: 35%;
   height: 11.5%;
   width: 14%;
   left: 4.5%;
+  opacity: 0.7;
 }
 
-#invBtn3{
+#mapContainer>:nth-child(4){
   top: 36%;
   height: 12%;
   width: 14%;
   left: 79%;
+  opacity: 0.7;
 }
 
 #freddynose {
