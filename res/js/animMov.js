@@ -2,7 +2,7 @@
 
 export let randomRoom;
 export let roomVisible;
-    const btns = document.getElementsByClassName("invBtn");
+const btns = document.getElementsByClassName("invBtn");
 export default function animMov() {
   let random;
   let interval;
@@ -71,15 +71,16 @@ export default function animMov() {
       }
     });
 
-    checkAnimPos(1, 1, "res/img/StageHonzak.png", "res/img/emptyStage.png");
-    checkAnimPos(2, 2, "res/img/LHallHonzak.png", "res/img/LHallEmpty.png");
-    checkAnimPos(3, 3, "res/img/RHallHonzak.png", "res/img/RHallEmpty.png");
+    checkAnimPos(1, 1, "res/img/StageHonzak.png", "res/img/emptyStage.png", false);
+    checkAnimPos(2, 2, "res/img/LHallHonzak.png", "res/img/LHallEmpty.png", false);
+    checkAnimPos(3, 3, "res/img/RHallHonzak.png", "res/img/RHallEmpty.png", false);
   }
 
   function checkAnimPos(roomVal, randomRoomVal, source, emptySource, boolean) {
-    if ((inRoom == randomRoomVal) || boolean){
+    console.log(boolean)
+    if (((inRoom != randomRoom && randomRoom == randomRoomVal)) || boolean){
       camImg.src = "../res/videos/static.gif";
-      console.log(inRoom + randomRoomVal)
+      console.log(inRoom + " asd" + randomRoomVal)
     }
       setTimeout(() => {
         if (inRoom == roomVal && randomRoom == randomRoomVal) {
