@@ -6,12 +6,9 @@ let lightBtnR = document.getElementById("lightBtnR");
 let doorBtnL = document.getElementById("doorBtnL");
 let doorBtnR = document.getElementById("doorBtnR");
 let officeImg = document.getElementById("officeImg");
-let camera = document.getElementById("camera");
+export let camera = document.getElementById("camera");
 let mapContainer = document.getElementById("mapContainer");
 export let camImg = document.getElementById("camImg");
-export let invBtn1 = document.getElementById("invBtn1");
-export let invBtn2 = document.getElementById("invBtn2");
-export let invBtn3 = document.getElementById("invBtn3");
 let freddynose = document.getElementById("freddynose");
 let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
@@ -56,40 +53,41 @@ function reduceEnergy() {
   energyindicator.innerHTML = parseInt(energy);
   if (energy <= 0) {
     energyindicator.style.display = "none";
-    time.style.display = "none";
-    officeImg.src = "./res/videos/project.mp4";
-    clearInterval(reduceEnergy);
-    video.play();
-    camera.style.display = "none";
-    backgroundvideo.style.display = "block";
-    camImg.style.display = "none";
-    mapContainer.style.display = "none";
+time.style.display = "none";
+    officeImg.src = "./res/videos/project.mp4";  
+clearInterval(reduceEnergy);
+video.play();
+camera.style.display = "none";
+backgroundvideo.style.display = "block";
+camImg.style.display = "none";
+mapContainer.style.display = "none";
     playagain.style.display = "block";
     setInterval(death, 50000);
   }
 }
 function reducetime() {
-  time1 += 1;
-  time.innerHTML = `${time1} AM`;
-  if (time1 >= 6) {
-    officeImg.src = "./res/videos/sixAM.mp4";
-    video2.play();
-    camera.style.display = "none";
-    backgroundvideo2.style.display = "block";
-    camImg.style.display = "none";
-    mapContainer.style.display = "none";
-    energyindicator.style.display = "none";
-    time.style.display = "none";
-    setInterval(death, 9000);
-  }
+time1 += 1;
+time.innerHTML = `${time1} AM`;
+if (time1 >= 6) {
+  officeImg.src = "./res/videos/sixAM.mp4";
+  video2.play(); 
+  camera.style.display = "none";
+  backgroundvideo2.style.display = "block";
+  camImg.style.display = "none";
+  mapContainer.style.display = "none";
+energyindicator.style.display = "none";
+time.style.display = "none";
+setInterval(death,9000);
+
+}
 }
 
 function move() {
   if (puppetStage > 0) {
     puppetStage -= 1;
-  
-  
-  }
+
+
+} 
 }
 var elem = document.getElementById("myBar");
 var width = 0;
@@ -107,7 +105,7 @@ window.onload = function () {
   setInterval(reducetime, 113000);
   setInterval(puppet, 20000);
   setInterval(frame, 20000);
-};
+}; 
 
 lightBtnL.onclick = () => {
   bgLL();
@@ -316,7 +314,7 @@ function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
     otherBtn2.style.backgroundColor = "transparent";
   };
 }
-
+ 
 turnaround.onclick = () => {
   if (officecam == 0) {
     officecam += 2;
@@ -346,7 +344,13 @@ turnaround.onclick = () => {
 // changeCamAtr(invBtn3, invBtn2, invBtn1, "res/img/RHallEmpty.png");
 
 freddynose.onclick = () => {
-  audio.play();
+  audio.play(); 
 };
 
+
+
+
 animMov();
+
+
+
