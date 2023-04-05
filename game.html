@@ -15,29 +15,28 @@
       <video id="backgroundvideo2">
         <source src="./res/videos/sixAM.mp4" type="video/mp4">
       </video> 
-    
+      <div id="myProgress">
+        <div id="myBar"></div>
+      </div>
+      
    <div id="freddynose"></div>
     <div id="mainContent">
          
         <div id="camera">\____________/</div>
         <div id="turnaround">\_/</div>
-
-        
-        <div id="puppetButton">Spin the lever</div>
-
+        <div id="puppetButton">Spin the wheel</div>
         <a href="http://127.0.0.1:5500"> <div id="playagain">PLAY AGAIN</div></a>
-
-        <a href=""> <div id="playagain">PLAY AGAIN</div></a>
         <div id="energyindicator">100</div>
         <div id="time">12 AM</div>
         <img src="./res/img/Default.webp" alt="" id="officeImg">
+        <img src="./res/img/puppet0.png" alt="" id="behindImg">
         <div id="camBgContainer">
             <img src="./res/img/StageHonzak.png" alt="" id="camImg">
             <div id="mapContainer">
                 <img src="./res/img/Map.png" alt="" id="map">
-                <div class="invBtn" class="active" data-inRoom="1" data-imgEmpty="res/img/emptyStage.png" data-img="res/img/StageHonzak.png"></div>
-                <div class="invBtn" data-inRoom="2" data-imgEmpty="res/img/LHallEmpty.png" data-img="res/img/LHallHonzak.png"></div>
-                <div class="invBtn" data-inRoom="3" data-imgEmpty="res/img/RHallEmpty.png" data-img="res/img/RHallHonzak.png"></div>
+                <div id="invBtn1"></div>
+                <div id="invBtn2"></div>
+                <div id="invBtn3"></div>
             </div>
         </div>
        
@@ -51,6 +50,6 @@
         </div> 
     </div>
 </div>
-    <script type="module" src="res/js/mainRoom.js"></script>
+    <script type="module" src="./res/js/mainRoom.js"></script>
 </body>
 </html>
