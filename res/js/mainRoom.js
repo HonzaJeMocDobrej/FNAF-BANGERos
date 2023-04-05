@@ -69,6 +69,7 @@ function puppet() {
     behindImg.src = "./res/img/puppet0.png";
   }
 
+}
 
 
   function death () {
@@ -118,7 +119,7 @@ function reducePuppetTime() {
 
 
 
-  }
+  
   if (puppetStage > 0) {
 
     puppetStage -= 1;
@@ -135,7 +136,7 @@ function reducePuppetTime() {
     behindImg.src = "./res/img/puppet0.png";
   }
   console.log("puppet stage=" + puppetStage + "width = " + width);
-  
+}
   
 
 function callSetInterval(){
@@ -431,6 +432,4 @@ freddynose.onclick = () => {
 
 
 animMov();
-
-
 
