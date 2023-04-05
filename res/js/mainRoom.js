@@ -27,7 +27,7 @@ let energy = 100;
 let energyDrain = 0.1;
 let time1 = 0;
 let puppetStage = 0;
-let puppetmovetime = 20000;
+
 
 function death() {
   window.location.href = "index.html";
