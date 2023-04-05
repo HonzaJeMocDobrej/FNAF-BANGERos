@@ -143,6 +143,15 @@ display:none;
 }
 
 
+.invBtn{
+  position: absolute;
+  height: 15%;
+  background-color: aqua;
+  width: 15%;
+  cursor: pointer;
+  background: transparent;  
+}
+
 .active {
   background-color: grey;
 }
