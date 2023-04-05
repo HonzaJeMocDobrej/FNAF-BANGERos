@@ -26,7 +26,7 @@ let doorVisibleL = 0;
 let doorVisibleR = 0;
 let officecam = 0;
 let energy = 100;
-let energyDrain = 1;
+let energyDrain = 0.1;
 let time1 = 0;
 
 
@@ -38,7 +38,7 @@ function death () {
 function reduceEnergy() {
   energy -= energyDrain;
   console.log("Energy reduced by "+energyDrain+". Current energy:", energy);
-  energyindicator.innerHTML = energy;
+  energyindicator.innerHTML = parseInt(energy);
   if (energy <= 0) {
     energyindicator.style.display = "none";
 time.style.display = "none";
@@ -73,8 +73,8 @@ setInterval(death,9000);
 } 
 
 window.onload = function () {
-  setInterval(reduceEnergy, 9600);
-  setInterval(reducetime, 45000);
+  setInterval(reduceEnergy, 960);
+  setInterval(reducetime, 113000);
 }; 
 
 lightBtnL.onclick = () => {
@@ -103,32 +103,32 @@ function bgLL() {
     officeImg.src = "./res/img/LL.webp";
     lightVisibleL = 1;
     console.log("left");
-    energyDrain +=1;
+    energyDrain += 0.1;
   } else if (lightVisibleL == 1 && lightVisibleR == 1) {
     officeImg.src = "./res/img/RL.webp";
     lightVisibleL = 0;
     console.log("right");
-    energyDrain -=1;
+    energyDrain -= 0.1;
   } else if (lightVisibleL == 1 && lightVisibleR == 0 && doorVisibleR == 0) {
     officeImg.src = "./res/img/Default.webp";
     lightVisibleL = 0;
     console.log("none");
-    energyDrain -=1;
+    energyDrain -= 0.1;
   } else if (lightVisibleL == 0 && lightVisibleR == 1 && doorVisibleL == 0) {
     officeImg.src = "./res/img/RL_LL.webp";
     lightVisibleL = 1;
     console.log("both");
-    energyDrain +=1;
+    energyDrain += 0.1;
   } else if (lightVisibleL == 0 && doorVisibleR == 1 && doorVisibleL == 0) {
     officeImg.src = "./res/img/RD_LL.webp";
     lightVisibleL = 1;
     console.log("light door");
-    energyDrain +=1;
+    energyDrain += 0.1;
   } else if (lightVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/RD.webp";
     lightVisibleL = 0;
     console.log("door");
-    energyDrain -=1;
+    energyDrain -= 0.1;
   }
 
   console.log(lightVisibleL);
@@ -144,32 +144,32 @@ function bgRL() {
     officeImg.src = "./res/img/RL.webp";
     lightVisibleR = 1;
     console.log("right");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (lightVisibleL == 1 && lightVisibleR == 1) {
     officeImg.src = "./res/img/LL.webp";
     lightVisibleR = 0;
     console.log("left");
-    energyDrain -=1;
+    energyDrain -=0.1;
   } else if (lightVisibleL == 0 && lightVisibleR == 1 && doorVisibleL == 0) {
     officeImg.src = "./res/img/Default.webp";
     lightVisibleR = 0;
-    energyDrain -=1;
+    energyDrain -=0.1;
     console.log("none");
   } else if (lightVisibleL == 1 && lightVisibleR == 0 && doorVisibleR == 0) {
     officeImg.src = "./res/img/RL_LL.webp";
     lightVisibleR = 1;
     console.log("both");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (lightVisibleR == 0 && doorVisibleL == 1 && doorVisibleR == 0) {
     officeImg.src = "./res/img/LD_RL.webp";
     lightVisibleR = 1;
     console.log("light door");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (lightVisibleR == 1 && doorVisibleL == 1) {
     officeImg.src = "./res/img/LD.webp";
     lightVisibleR = 0;
     console.log("door");
-    energyDrain -=1;
+    energyDrain -=0.1;
   }
 
   console.log(lightVisibleR);
@@ -185,32 +185,32 @@ function bgLD() {
     officeImg.src = "./res/img/LD.webp";
     doorVisibleL++;
     console.log("left");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (doorVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/RD.webp";
     doorVisibleL = 0;
     console.log("right");
-    energyDrain -=1;
+    energyDrain -=0.1;
   } else if (doorVisibleL == 1 && doorVisibleR == 0 && lightVisibleR == 0) {
     officeImg.src = "./res/img/Default.webp";
     doorVisibleL = 0;
     console.log("none");
-    energyDrain -=1;
+    energyDrain -=0.1;
   } else if (doorVisibleL == 0 && doorVisibleR == 1 && lightVisibleL == 0) {
     officeImg.src = "./res/img/RD_LD.webp";
     doorVisibleL = 1;
     console.log("both");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (lightVisibleR == 1 && doorVisibleL == 0 && lightVisibleL == 0) {
     officeImg.src = "./res/img/LD_RL.webp";
     doorVisibleL = 1;
     console.log("light door");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (lightVisibleR == 1 && doorVisibleL == 1) {
     officeImg.src = "./res/img/RL.webp";
     doorVisibleL = 0;
     console.log("light");
-    energyDrain -=1;
+    energyDrain -=0.1;
   }
 
   console.log(doorVisibleL);
@@ -226,32 +226,32 @@ function bgRD() {
     officeImg.src = "./res/img/RD.webp";
     doorVisibleR++;
     console.log("right");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (doorVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/LD.webp";
     doorVisibleR = 0;
     console.log("left");
-    energyDrain -=1;
+    energyDrain -=0.1;
   } else if (doorVisibleL == 0 && doorVisibleR == 1 && lightVisibleL == 0) {
     officeImg.src = "./res/img/Default.webp";
     doorVisibleR = 0;
     console.log("none");
-    energyDrain -=1;
+    energyDrain -=0.1;
   } else if (doorVisibleL == 1 && doorVisibleR == 0 && lightVisibleR == 0) {
     officeImg.src = "./res/img/RD_LD.webp";
     doorVisibleR = 1;
     console.log("both");
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (lightVisibleL == 1 && doorVisibleR == 0 && lightVisibleR == 0) {
     officeImg.src = "./res/img/RD_LL.webp";
     doorVisibleR = 1;
     console.log("light door");
-    energyDrain += 1;
+    energyDrain += 0.1;
   } else if (lightVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/LL.webp";
     doorVisibleR = 0;
     console.log("light");
-    energyDrain -=1;
+    energyDrain -=0.1;
   }
 
   console.log(doorVisibleR);
@@ -263,13 +263,13 @@ camera.onclick = () => {
     mapContainer.style.display = "block";
     camImg.style.display = "block";
     officecam = 1;
-    energyDrain +=1;
+    energyDrain +=0.1;
   } else if (officecam == 1) {
     officeImg.style.display = "block";
     mapContainer.style.display = "none";
     camImg.style.display = "none";
     officecam = 0;
-    energyDrain -=1;
+    energyDrain -=0.1;
   }
 
   console.log(officecam);
