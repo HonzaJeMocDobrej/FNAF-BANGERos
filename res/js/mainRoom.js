@@ -30,13 +30,30 @@ let energy = 100;
 let energyDrain = 0.1;
 let time1 = 0;
 let puppetStage = 0;
-let puppetmovetime = 20000;
+let width = 0;
+var x;
 
 function death() {
   window.location.href = "index.html";
 }
 
 function puppet() {
+  if (puppetStage >= 5) {
+    energyindicator.style.display = "none";
+    time.style.display = "none";
+    officeImg.src = "./res/videos/honzak.gif";
+    clearInterval(reduceEnergy);
+    video.play();
+    camera.style.display = "none";
+    backgroundvideo.style.display = "block";
+    camImg.style.display = "none";
+    mapContainer.style.display = "none";
+    playagain.style.display = "block";
+    turnaround.style.display = "none";
+    myProgress.style.display = "none";
+    
+
+    setInterval(death, 4000);}
   puppetStage += 1;
   console.log("puppet stage=" + puppetStage);
   if (puppetStage == 1) {
@@ -47,6 +64,9 @@ function puppet() {
     behindImg.src = "./res/img/puppet3.png";
   } else if (puppetStage == 4) {
     behindImg.src = "./res/img/puppet4.png";
+  }
+  else if (puppetStage == 0) {
+    behindImg.src = "./res/img/puppet0.png";
   }
 }
 
@@ -84,19 +104,59 @@ function reducetime() {
   }
 }
 
+function reducePuppetTime() {
+  if (width > 0) {
+    width -= 25;
+    elem.style.width = width + "%";
+  }
+
+
+
+  }
+  if (puppetStage > 0) {
+
+    puppetStage -= 1;
+    if (puppetStage == 1) {
+      behindImg.src = "./res/img/puppet1.png";
+    } else if (puppetStage == 2) {
+      behindImg.src = "./res/img/puppet2.png";
+    } else if (puppetStage == 3) {
+      behindImg.src = "./res/img/puppet3.png";
+    } else if (puppetStage == 4) {
+      behindImg.src = "./res/img/puppet4.png";
+    }
+  } else if (puppetStage == 0) {
+    behindImg.src = "./res/img/puppet0.png";
+  }
+  console.log("puppet stage=" + puppetStage + "width = " + width);
+  
+  
+
+function callSetInterval(){
+  x = setInterval(reducePuppetTime,5000);
+}
+function callClearInterval() {
+clearInterval(x);
+}
+
+puppetButton.onmousedown = () => {
+  callSetInterval();
+  puppetButton.style.backgroundColor = "white";
+};
+puppetButton.onmouseup = () => {
+  callClearInterval();
+  puppetButton.style.backgroundColor = "grey";
+};
+
 function move() {
   if (puppetStage > 0) {
     puppetStage -= 1;
-  
-  
   }
 }
 var elem = document.getElementById("myBar");
-var width = 0;
+
 function frame() {
   if (width >= 100) {
-    clearInterval(id);
-    puppetStage = 0;
   } else {
     width += 25;
     elem.style.width = width + "%";
@@ -105,8 +165,8 @@ function frame() {
 window.onload = function () {
   setInterval(reduceEnergy, 960);
   setInterval(reducetime, 113000);
-  setInterval(puppet, 20000);
-  setInterval(frame, 20000);
+  setInterval(puppet, 10000);
+  setInterval(frame, 10000);
 };
 
 lightBtnL.onclick = () => {
@@ -294,12 +354,14 @@ camera.onclick = () => {
     officeImg.style.display = "none";
     mapContainer.style.display = "block";
     camImg.style.display = "block";
+    turnaround.style.display = "none";
     officecam = 1;
     energyDrain += 0.1;
   } else if (officecam == 1) {
     officeImg.style.display = "block";
     mapContainer.style.display = "none";
     camImg.style.display = "none";
+    turnaround.style.display = "block";
     officecam = 0;
     energyDrain -= 0.1;
   }
@@ -325,7 +387,7 @@ turnaround.onclick = () => {
     camera.style.display = "none";
     energyindicator.style.display = "none";
     puppetButton.style.display = "block";
-    myProgress.style.display ="block";
+    myProgress.style.display = "block";
   } else if (officecam == 2) {
     officecam -= 2;
     officeImg.style.display = "block";
@@ -333,7 +395,7 @@ turnaround.onclick = () => {
     camera.style.display = "block";
     energyindicator.style.display = "block";
     puppetButton.style.display = "none";
-    myProgress.style.display ="none";
+    myProgress.style.display = "none";
   }
 };
 
