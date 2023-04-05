@@ -7,27 +7,57 @@ export default function animMov() {
     let random;
     let interval;
     let inRoom = 1;
+    let count = 0;
+    let leftArr = [1, 4];
+    let rightArr = [1, 5];
+    let randomInt;
     
     
-    setTimeout(() => {
         function unvIntFunc() {
            
-                  
-                  random = Math.floor(Math.random() * 3) + 1;
-                  if (random == 1) {
-                    interval = setTimeout(unvIntFunc, 5000);
-                    
-                  }
-                  
-                  else if (random == 2) {
-                    interval = setTimeout(unvIntFunc, 5000);
-                  }
-                  
-                  else if (random == 3) {
-                    interval = setTimeout(unvIntFunc, 5000);
-                  }
-                  
-                  randomRoom = Math.floor(Math.random() * 3) + 1;
+          if (count == 0) {
+            random = 3
+            randomRoom = 1
+            count++;
+            console.log("First statement")
+          }
+
+          else if (count >= 1 && randomRoom == 1) {
+            random = Math.floor(Math.random() * 3) + 1;
+            randomRoom = Math.floor(Math.random() * 3) + 1;
+            console.log("Second statement")
+          }
+
+          else if (randomRoom == 2) {
+            leftAndRightLoc(leftArr)
+            console.log("Left Side")
+          }
+
+          else if (randomRoom == 3) {
+            leftAndRightLoc(rightArr)
+            console.log("Right Side")
+          }
+
+          else if (randomRoom == 4 || randomRoom == 5) {
+            random = Math.floor(Math.random() * 3) + 1;
+            randomRoom = 6;
+            console.log("Final statement")
+          }
+
+            if (random == 1) {
+              interval = setTimeout(unvIntFunc, 5000);
+              
+            }
+            
+            else if (random == 2) {
+              interval = setTimeout(unvIntFunc, 5000);
+            }
+            
+            else if (random == 3) {
+              interval = setTimeout(unvIntFunc, 5000);
+            }
+
+            
                   console.log("Random: " + random)
                   console.log("Random room: " + randomRoom)
                   
@@ -62,11 +92,16 @@ export default function animMov() {
                     camImg.src = emptySource
                   }
                 }
+
+                function leftAndRightLoc(arr) {
+                  random = Math.floor(Math.random() * 3) + 1;
+                  randomInt = Math.floor(Math.random() * 2);
+                  randomRoom = arr[randomInt];
+                }
                 
                 unvIntFunc();
-              }, 15000);
-
-        
-
-
-    }
+                
+                
+                
+                
+              }
