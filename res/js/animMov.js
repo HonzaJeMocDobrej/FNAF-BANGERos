@@ -79,7 +79,7 @@ export default function animMov() {
   function checkAnimPos(roomVal, randomRoomVal, source, emptySource, boolean) {
     if ((inRoom == randomRoomVal) || boolean){
       camImg.src = "../res/videos/static.gif";
-      console.log(inRoom + randomvals)
+      console.log(inRoom + randomRoomVal)
     }
       setTimeout(() => {
         if (inRoom == roomVal && randomRoom == randomRoomVal) {
