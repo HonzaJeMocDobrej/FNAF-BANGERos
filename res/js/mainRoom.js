@@ -65,7 +65,7 @@ if (time1 >= 6) {
   mapContainer.style.display = "none";
 energyindicator.style.display = "none";
 time.style.display = "none";
-
+setInterval(death,9000);
 
 }
 
