@@ -57,13 +57,58 @@ body {
   font-size: 250%;
   text-align: center;
 }
+#turnaround {
+  width: 10%;
+  border-color: white;
+  color: white;
+  background-color: grey;
+  border: 1px solid;
+  height: 50px;
+  position: absolute;
+  cursor: default;
+  top: 90%;
+  left: 10%;
+  right: 33%;
+  font-size: 250%;
+  text-align: center;
+}
+#myProgress {
+  width: 30%;
+  height: 6%;
+  background-color: grey;
+  position: absolute;
+  display:none;
+  left:65%;
+  top:80%;
+}
+#myBar {
+  width: 1%;
+  height: 100%;
+  background-color: white;
+}
+#puppetButton {
+  width: 20%;
+  border-color: white;
+  color: white;
+  background-color: grey;
+  border: 1px solid;
+  height: 50px;
+  display: none;
+  position: absolute;
+  cursor: default;
+  top: 90%;
+  left: 70%;
+  right: 33%;
+  font-size: 250%;
+  text-align: center;
+}
 
 #playagain {
-left:40%;
-top:40%;
-font-size:50px;
-color:white;
-display:none;
+  left: 40%;
+  top: 40%;
+  font-size: 50px;
+  color: white;
+  display: none;
 }
 
 #camImg {
@@ -73,7 +118,7 @@ display:none;
   display: none;
 }
 
-#mapContainer{
+#mapContainer {
   width: 28%;
   height: 35%;
   position: absolute;
@@ -82,7 +127,7 @@ display:none;
   display: none;
 }
 
-#map{
+#map {
   height: 100%;
   width: 100%;
 }
@@ -91,31 +136,37 @@ display:none;
   width: 100vw;
   margin: auto;
 }
-
-#invBtn1, #invBtn2, #invBtn3{
+#behindImg {
+  width: 100vw;
+  margin: auto;
+  display: none;
+}
+#invBtn1,
+#invBtn2,
+#invBtn3 {
   position: absolute;
   height: 15%;
   background-color: aqua;
   width: 15%;
   cursor: pointer;
-  background: transparent;  
+  background: transparent;
 }
 
-#invBtn1{
+#invBtn1 {
   top: 11%;
   left: 53%;
   background-color: grey;
   opacity: 0.7;
 }
 
-#invBtn2{
+#invBtn2 {
   top: 35%;
   height: 11.5%;
   width: 14%;
   left: 4.5%;
 }
 
-#invBtn3{
+#invBtn3 {
   top: 36%;
   height: 12%;
   width: 14%;
@@ -123,50 +174,49 @@ display:none;
 }
 
 #freddynose {
-  cursor:crosshair;
-width:2%;
-height:2%;
-position:absolute;
-left:41%;
-top:34%;
+  cursor: crosshair;
+  width: 2%;
+  height: 2%;
+  position: absolute;
+  left: 41%;
+  top: 34%;
 }
 
 #time {
-position:absolute;
-  top:10%;
-  color:white;
-left:90%;
-font-size:50px;
+  position: absolute;
+  top: 10%;
+  color: white;
+  left: 90%;
+  font-size: 50px;
 }
 #energyindicator {
-position:absolute;
-  top:80%;
-  color:white;
-left:10%;
-font-size:50px;
+  position: absolute;
+  top: 80%;
+  color: white;
+  left: 10%;
+  font-size: 50px;
 }
 #backgroundvideo {
   position: fixed;
   width: 100vw;
   height: 100vh;
   margin: auto;
- display:none;
+  display: none;
 }
 #backgroundvideo2 {
   position: fixed;
   width: 100vw;
   height: 100vh;
   margin: auto;
- display:none;
+  display: none;
 }
 #start {
-position:absolute;
-color:white;
-left:20%;
-top:40%;
-font-size:70px;
+  position: absolute;
+  color: white;
+  left: 20%;
+  top: 40%;
+  font-size: 70px;
 }
-
 
 /* 
 #camButton{
