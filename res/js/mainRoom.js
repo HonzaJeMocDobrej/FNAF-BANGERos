@@ -50,7 +50,7 @@ backgroundvideo.style.display = "block";
 camImg.style.display = "none";
 mapContainer.style.display = "none";
 playagain.style.display ="block";
-setInterval(death,52000);
+setInterval(death,50000);
   }
 }
 function reducetime(){
@@ -73,7 +73,7 @@ setInterval(death,9000);
 } 
 
 window.onload = function () {
-  setInterval(reduceEnergy, 960);
+  setInterval(reduceEnergy, 10);
   setInterval(reducetime, 113000);
 }; 
 
