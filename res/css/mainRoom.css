@@ -201,20 +201,14 @@ position:absolute;
 left:10%;
 font-size:50px;
 }
-#backgroundvideo {
+#backgroundvideo, #backgroundvideo2, #backgroundvideo3  {
   position: fixed;
   width: 100vw;
   height: 100vh;
   margin: auto;
  display:none;
 }
-#backgroundvideo2 {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  margin: auto;
- display:none;
-}
+
 #start {
 position:absolute;
 color:white;
@@ -237,3 +231,8 @@ font-size:70px;
     background-repeat: no-repeat;
     background-size: cover;
 }  */
+
+
+#game {
+  display:block;
+}

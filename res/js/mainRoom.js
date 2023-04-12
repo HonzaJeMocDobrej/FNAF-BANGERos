@@ -14,9 +14,11 @@ let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById("backgroundvideo");
 const video2 = document.getElementById("backgroundvideo2");
+const video3 = document.getElementById("backgroundvideo3");
 const time = document.getElementById("time");
 const turnaround = document.getElementById("turnaround");
 const puppetButton = document.getElementById("puppetButton");
+let game = document.getElementById("game");
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -33,7 +35,7 @@ function death() {
 }
 
 function puppet() {
-  puppetStage += 10;
+  puppetStage += 1;
   console.log("puppet stage=" + puppetStage);
   if (puppetStage == 10) {
     behindImg.src = "./res/img/puppet1.png";
@@ -89,8 +91,8 @@ var elem = document.getElementById("myBar");
 var width = 0;
 function frame() {
   if (width >= 100) {
-    console.log("smrt")
-    death();
+    console.log("smrt");
+    
   } else {
     width += 2.5;
     elem.style.width = width + "%";
@@ -99,7 +101,7 @@ function frame() {
 window.onload = function () {
   setInterval(reduceEnergy, 960);
   setInterval(reducetime, 113000);
-  setInterval(puppet, 20000);
+  setInterval(puppet, 2000);
   setInterval(frame, 2000);
 };
 
@@ -377,8 +379,22 @@ puppetButton.onmouseup = () => {
 };
 
 function checkdeath() {
-  if (puppetStage > 45) {
-    death();
+  console.log(puppetStage);
+  if (puppetStage > 42) {
+    puppetJumpScare();
+    console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky")
   }
 }
-setInterval(checkdeath,100);
+setInterval(checkdeath, 100);
+
+function puppetJumpScare() {
+  energyindicator.style.display = "none";
+  time.style.display = "none";
+  video3.play();
+  camera.style.display = "none";
+  backgroundvideo3.style.display = "block";
+  camImg.style.display = "none";
+  mapContainer.style.display = "none";
+ game.style.display ="none";
+  setInterval(death, 4200);
+}
