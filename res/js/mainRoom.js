@@ -290,11 +290,13 @@ camera.onclick = () => {
     officeImg.style.display = "none";
     mapContainer.style.display = "block";
     camImg.style.display = "block";
+    turnaround.style.display= "none";
     officecam = 1;
     energyDrain += 0.1;
   } else if (officecam == 1) {
     officeImg.style.display = "block";
     mapContainer.style.display = "none";
+    turnaround.style.display= "block";
     camImg.style.display = "none";
     officecam = 0;
     energyDrain -= 0.1;
