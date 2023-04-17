@@ -212,6 +212,7 @@ body {
 }
 #backgroundvideo4 {
   display: block;
+  top:20px;
 }
 
 #start {
@@ -263,3 +264,9 @@ body {
   color: grey;
   cursor: pointer;
 }
+
+#indexBackgroundMusic {
+display:none;
+ 
+}
+

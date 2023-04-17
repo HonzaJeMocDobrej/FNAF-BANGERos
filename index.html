@@ -8,14 +8,20 @@
     <title>Main Menu</title>
 </head>
 <body>
-    <div id="text">This game contains flashing lights and jumpscares, play on your own decision.</div>
+    
+    <div id="text">This game contains flashing lights and images, play on your own decision.</div>
     <div id="button">Play</div>
     <div id="wantToPlay">
-    <video id="backgroundvideo4" autoplay loop>
+    
+    <video id="backgroundvideo4" loop>
         <source src="./res/videos/static.mp4" type="video/mp4">
       </video>
+      <audio id="indexBackgroundMusic" controls loop>
+        <source src="./res/sound/mainSound.mp3" type="audio/mp3">
+      </audio>
+
    <a href="game.html"> <div id="start">Start new Game</div></a> 
 </div>
-    <script type="module" src="./res/js/mainRoom.js"></script>
+    <script type="module" src="./res/js/main.js"></script>
 </body>
 </html>

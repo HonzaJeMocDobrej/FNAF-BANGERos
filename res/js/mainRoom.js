@@ -15,13 +15,12 @@ let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById("backgroundvideo");
 const video2 = document.getElementById("backgroundvideo2");
 const video3 = document.getElementById("backgroundvideo3");
-const video4 = document.getElementById("backgroundvideo4");
+
 const time = document.getElementById("time");
 const turnaround = document.getElementById("turnaround");
 const puppetButton = document.getElementById("puppetButton");
 let game = document.getElementById("game");
-const button = document.getElementById("button");
-const text = document.getElementById("text");
+
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -403,8 +402,6 @@ function puppetJumpScare() {
   setInterval(death, 4200);
 }
 
-button.onclick = () => {
-  text.style.display = "none";
-  
-};
+
+
 
