@@ -15,10 +15,13 @@ let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById("backgroundvideo");
 const video2 = document.getElementById("backgroundvideo2");
 const video3 = document.getElementById("backgroundvideo3");
+const video4 = document.getElementById("backgroundvideo4");
 const time = document.getElementById("time");
 const turnaround = document.getElementById("turnaround");
 const puppetButton = document.getElementById("puppetButton");
 let game = document.getElementById("game");
+const button = document.getElementById("button");
+const text = document.getElementById("text");
 
 let lightVisibleR = 0;
 let lightVisibleL = 0;
@@ -92,7 +95,6 @@ var width = 0;
 function frame() {
   if (width >= 100) {
     console.log("smrt");
-    
   } else {
     width += 2.5;
     elem.style.width = width + "%";
@@ -290,13 +292,13 @@ camera.onclick = () => {
     officeImg.style.display = "none";
     mapContainer.style.display = "block";
     camImg.style.display = "block";
-    turnaround.style.display= "none";
+    turnaround.style.display = "none";
     officecam = 1;
     energyDrain += 0.1;
   } else if (officecam == 1) {
     officeImg.style.display = "block";
     mapContainer.style.display = "none";
-    turnaround.style.display= "block";
+    turnaround.style.display = "block";
     camImg.style.display = "none";
     officecam = 0;
     energyDrain -= 0.1;
@@ -384,7 +386,7 @@ function checkdeath() {
   console.log(puppetStage);
   if (puppetStage > 42) {
     puppetJumpScare();
-    console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky")
+    console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky");
   }
 }
 setInterval(checkdeath, 100);
@@ -397,6 +399,12 @@ function puppetJumpScare() {
   backgroundvideo3.style.display = "block";
   camImg.style.display = "none";
   mapContainer.style.display = "none";
- game.style.display ="none";
+  game.style.display = "none";
   setInterval(death, 4200);
 }
+
+button.onclick = () => {
+  text.style.display = "none";
+  
+};
+

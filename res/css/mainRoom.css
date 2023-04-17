@@ -77,9 +77,9 @@ body {
   height: 6%;
   background-color: grey;
   position: absolute;
-  display:none;
-  left:65%;
-  top:80%;
+  display: none;
+  left: 65%;
+  top: 80%;
 }
 #myBar {
   width: 1%;
@@ -104,11 +104,11 @@ body {
 }
 
 #playagain {
-left:40%;
-top:40%;
-font-size:50px;
-color:white;
-display:none;
+  left: 40%;
+  top: 40%;
+  font-size: 50px;
+  color: white;
+  display: none;
 }
 
 #camImg {
@@ -118,7 +118,7 @@ display:none;
   display: none;
 }
 
-#mapContainer{
+#mapContainer {
   width: 28%;
   height: 35%;
   position: absolute;
@@ -127,7 +127,7 @@ display:none;
   display: none;
 }
 
-#map{
+#map {
   height: 100%;
   width: 100%;
 }
@@ -142,27 +142,26 @@ display:none;
   display: none;
 }
 
-
-.invBtn{
+.invBtn {
   position: absolute;
   height: 15%;
   background-color: aqua;
   width: 15%;
   cursor: pointer;
-  background: transparent;  
+  background: transparent;
 }
 
 .active {
   background-color: grey;
 }
 
-#mapContainer>:nth-child(2){
+#mapContainer > :nth-child(2) {
   top: 11%;
   left: 53%;
   opacity: 0.7;
 }
 
-#mapContainer>:nth-child(3){
+#mapContainer > :nth-child(3) {
   top: 35%;
   height: 11.5%;
   width: 14%;
@@ -170,7 +169,7 @@ display:none;
   opacity: 0.7;
 }
 
-#mapContainer>:nth-child(4){
+#mapContainer > :nth-child(4) {
   top: 36%;
   height: 12%;
   width: 14%;
@@ -179,44 +178,49 @@ display:none;
 }
 
 #freddynose {
-  cursor:crosshair;
-width:2%;
-height:2%;
-position:absolute;
-left:41%;
-top:34%;
+  cursor: crosshair;
+  width: 2%;
+  height: 2%;
+  position: absolute;
+  left: 41%;
+  top: 34%;
 }
 
 #time {
-position:absolute;
-  top:10%;
-  color:white;
-left:90%;
-font-size:50px;
+  position: absolute;
+  top: 10%;
+  color: white;
+  left: 90%;
+  font-size: 50px;
 }
 #energyindicator {
-position:absolute;
-  top:80%;
-  color:white;
-left:10%;
-font-size:50px;
+  position: absolute;
+  top: 80%;
+  color: white;
+  left: 10%;
+  font-size: 50px;
 }
-#backgroundvideo, #backgroundvideo2, #backgroundvideo3  {
+#backgroundvideo,
+#backgroundvideo2,
+#backgroundvideo3,
+#backgroundvideo4 {
   position: fixed;
   width: 100vw;
   height: 100vh;
   margin: auto;
- display:none;
+  display: none;
+}
+#backgroundvideo4 {
+  display: block;
 }
 
 #start {
-position:absolute;
-color:white;
-left:20%;
-top:40%;
-font-size:70px;
+  position: absolute;
+  color: white;
+  left: 20%;
+  top: 40%;
+  font-size: 70px;
 }
-
 
 /* 
 #camButton{
@@ -232,7 +236,30 @@ font-size:70px;
     background-size: cover;
 }  */
 
-
 #game {
-  display:block;
+  display: block;
+}
+
+#wantToPlay {
+  display: none;
+}
+
+#text {
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 10%;
+  display: block;
+}
+#button {
+  color: white;
+  font-size: 80px;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+#button:hover {
+  font-size: 90px;
+  color: grey;
+  cursor: pointer;
 }
