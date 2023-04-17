@@ -1,4 +1,4 @@
-
+import { camImg, chDoorBool, officeImg } from "./mainRoom.js";
 
 export let randomRoom;
 export let roomVisible;
@@ -19,29 +19,29 @@ export default function animMov() {
       random = 3
       randomRoom = 1
       count++;
-      console.log("First statement")
+      // console.log("First statement")
     }
 
     else if (count >= 1 && randomRoom == 1) {
       random = Math.floor(Math.random() * 3) + 1;
       randomRoom = Math.floor(Math.random() * 3) + 1;
-      console.log("Second statement")
+      // console.log("Second statement")
     }
 
     else if (randomRoom == 2) {
       leftAndRightLoc(leftArr)
-      console.log("Left Side")
+      // console.log("Left Side")
     }
 
     else if (randomRoom == 3) {
       leftAndRightLoc(rightArr)
-      console.log("Right Side")
+      // console.log("Right Side")
     }
 
     else if (randomRoom == 4 || randomRoom == 5) {
       random = Math.floor(Math.random() * 3) + 1;
       randomRoom = 6;
-      console.log("Final statement")
+      // console.log("Final statement")
     }
 
     if (random == 1) {
@@ -74,6 +74,28 @@ export default function animMov() {
     checkAnimPos(1, 1, "res/img/StageHonzak.png", "res/img/emptyStage.png", false);
     checkAnimPos(2, 2, "res/img/LHallHonzak.png", "res/img/LHallEmpty.png", false);
     checkAnimPos(3, 3, "res/img/RHallHonzak.png", "res/img/RHallEmpty.png", false);
+
+    if (randomRoom == 5 && chDoorBool == 'RL' ) {
+      officeImg.src = "./res/img/RHonzak.png"
+    }
+    if (randomRoom == 4 && chDoorBool == 'LL' ){
+      officeImg.src = "./res/img/LHonzak.png"
+    }
+    if (randomRoom == 5 && chDoorBool == 'RLLL' ){
+      // RHonzakLL
+    }
+    if (randomRoom == 4 && chDoorBool == 'RLLL' ){
+      // LHonzakRL
+    }
+    if (randomRoom == 4 && chDoorBool == 'RDLL' ){
+      officeImg.src = "./res/img/LHonzakRClosed.png"
+    }
+    if (randomRoom == 5 && chDoorBool == 'LDRL' ){
+      officeImg.src = "./res/img/RHonzakLClosed.png"
+    }
+    else{
+      
+    }
   }
 
   function checkAnimPos(roomVal, randomRoomVal, source, emptySource, boolean) {
