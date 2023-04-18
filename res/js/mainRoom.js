@@ -19,7 +19,15 @@ const video3 = document.getElementById("backgroundvideo3");
 export let officeAudio = document.getElementById("officeAudio");
 export let animDoor = document.getElementById("animDoor");
 let doorSlam = document.getElementById("doorSlam");
+let call = document.getElementById("call");
+let openCamera = document.getElementById("openCamera");
+let musicBox = document.getElementById("musicBox");
+let swoosh = document.getElementById("swoosh");
+export let run = document.getElementById("run");
+export let camSwitch = document.getElementById("camSwitch");
 export let lightSound = document.getElementById("lightSound");
+
+export let soundArr = [call, officeAudio, musicBox, run, lightSound];
 
 const time = document.getElementById("time");
 const turnaround = document.getElementById("turnaround");
@@ -30,7 +38,7 @@ let lightVisibleR = 0;
 let lightVisibleL = 0;
 export let doorVisibleL = 0;
 export let doorVisibleR = 0;
-let officecam = 0;
+export let officecam = 0;
 let energy = 100;
 let energyDrain = 0.1;
 let time1 = 0;
@@ -116,6 +124,7 @@ window.onload = function () {
   setInterval(reducetime, 113000);
   setInterval(puppet, 2000);
   setInterval(frame, 2000);
+  call.play();
   officeAudio.play();
 };
 
@@ -133,14 +142,12 @@ doorBtnL.onclick = () => {
   console.log("doorVisibleL " + doorVisibleL)
   doorSlam.load();
   doorSlam.play();
-  lightSound.pause();
 };
 
 doorBtnR.onclick = () => {
   bgRD();
   doorSlam.load();
   doorSlam.play();
-  lightSound.pause();
 };
 
 function bgLL() {
@@ -265,11 +272,11 @@ function bgRL() {
     energyDrain += 0.1;
     chDoorBool = 'RLLL';
     if (randomRoom == 4) {
-      // LHonzakRL
+      officeImg.src = "./res/img/RL_LHonzak.png";
       animDoor.play();
     }
     else if(randomRoom == 5){
-      // RHonzakLL
+      officeImg.src = "./res/img/LL_RHonzak.png";
       animDoor.play();
     }
     else{
@@ -310,12 +317,14 @@ function bgLD() {
     console.log("left");
     energyDrain += 0.1;
     lightVisibleL = 0;
+    chDoorBool = '';
     lightSound.pause();
   } else if (doorVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/RD.webp";
     doorVisibleL = 0;
     console.log("right");
     energyDrain -= 0.1;
+    chDoorBool = '';
   } else if (doorVisibleL == 1 && doorVisibleR == 0 && lightVisibleR == 0) {
     officeImg.src = "./res/img/Default.webp";
     doorVisibleL = 0;
@@ -328,6 +337,7 @@ function bgLD() {
     lightVisibleL = 0;
     console.log("both");
     energyDrain += 0.1;
+    chDoorBool = '';
     lightSound.pause();
   } else if (lightVisibleR == 1 && doorVisibleL == 0) {
     doorVisibleL = 1;
@@ -335,6 +345,7 @@ function bgLD() {
     console.log("light door");
     energyDrain += 0.1;
     chDoorBool = 'LDRL';
+    lightSound.play();
     if (randomRoom == 5) {
       officeImg.src = "./res/img/RHonzakLClosed.png"
       animDoor.play();
@@ -370,12 +381,14 @@ function bgRD() {
     console.log("right");
     energyDrain += 0.1;
     lightVisibleR = 0;
+    chDoorBool = '';
     lightSound.pause();
   } else if (doorVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/LD.webp";
     doorVisibleR = 0;
     console.log("left");
     energyDrain -= 0.1;
+    chDoorBool = '';
   } else if (doorVisibleL == 0 && doorVisibleR == 1 && lightVisibleL == 0) {
     officeImg.src = "./res/img/Default.webp";
     doorVisibleR = 0;
@@ -388,6 +401,7 @@ function bgRD() {
     lightVisibleR = 0;
     console.log("both");
     energyDrain += 0.1;
+    chDoorBool = '';
     lightSound.pause();
   } else if (lightVisibleL == 1 && doorVisibleR == 0) {
     doorVisibleR = 1;
@@ -395,6 +409,7 @@ function bgRD() {
     console.log("light door");
     energyDrain += 0.1;
     chDoorBool = 'RDLL';
+    lightSound.play();
     if (randomRoom == 4) {
       officeImg.src = "./res/img/LHonzakRClosed.png"
       animDoor.play();
@@ -420,6 +435,8 @@ function bgRD() {
 }
 
 camera.onclick = () => {
+  openCamera.load();
+  openCamera.play();
   if (officecam == 0) {
     officeImg.style.display = "none";
     mapContainer.style.display = "block";
@@ -450,7 +467,10 @@ function changeCamAtr(mainBtn, otherBtn1, otherBtn2, source) {
 }
 
 turnaround.onclick = () => {
+  swoosh.load();
+  swoosh.play();
   if (officecam == 0) {
+    musicBox.play();
     officecam += 2;
     officeImg.style.display = "none";
     behindImg.style.display = "block";
@@ -459,6 +479,7 @@ turnaround.onclick = () => {
     puppetButton.style.display = "block";
     myProgress.style.display = "block";
   } else if (officecam == 2) {
+    musicBox.pause();
     officecam -= 2;
     officeImg.style.display = "block";
     behindImg.style.display = "none";

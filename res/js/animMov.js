@@ -1,4 +1,4 @@
-import { camImg, chDoorBool, doorVisibleL, doorVisibleR, honzakJumpScare, officeImg, animDoor, officeAudio, lightSound } from "./mainRoom.js";
+import { camImg, chDoorBool, doorVisibleL, doorVisibleR, honzakJumpScare, officeImg, run, officeAudio, lightSound, camSwitch, officecam, soundArr } from "./mainRoom.js";
 
 export let randomRoom;
 export let roomVisible;
@@ -39,9 +39,9 @@ export default function animMov() {
     }
 
     else if (randomRoom == 4) {
-      random = 2;
+      random = Math.floor(Math.random() * 3) + 1;
       if (doorVisibleL == 1) {
-        animDoor.play();
+        run.play();
         randomRoom = Math.floor(Math.random() * 2) + 1;
       }
       else{
@@ -50,9 +50,9 @@ export default function animMov() {
     }
     
     else if (randomRoom == 5) {
-      random = 2;
+      random = Math.floor(Math.random() * 3) + 1;
       if (doorVisibleR == 1) {
-        animDoor.play();
+        run.play();
         leftAndRightLoc(rightBackArr)
       }
       else{
@@ -82,6 +82,8 @@ export default function animMov() {
     const btns = document.getElementsByClassName("invBtn");
     [...btns].forEach(element => {
       element.onclick = () => {
+        camSwitch.load();
+        camSwitch.play();
         inRoom = element.dataset.inroom;
         checkActive(element);
         checkAnimPos(element.dataset.inroom, element.dataset.inroom, element.dataset.img, element.dataset.imgempty, true);
@@ -102,10 +104,10 @@ export default function animMov() {
       officeImg.src = "./res/img/LHonzak.png"
     }
     if (randomRoom == 5 && chDoorBool == 'RLLL' ){
-      // RHonzakLL
+      officeImg.src = "./res/img/LL_RHonzak.png"
     }
     if (randomRoom == 4 && chDoorBool == 'RLLL' ){
-      // LHonzakRL
+      officeImg.src = "./res/img/RL_LHonzak.png"
     }
     if (randomRoom == 4 && chDoorBool == 'RDLL' ){
       officeImg.src = "./res/img/LHonzakRClosed.png"
@@ -117,9 +119,12 @@ export default function animMov() {
       
     }
 
+    //--------------------------Game Ended By Losing--------------------------//
+    
     if (randomRoom == 6) {
-      officeAudio.pause();
-      lightSound.pause();
+      soundArr.forEach(element => {
+        element.pause();
+      });
       clearTimeout(interval);
       console.log("Interval Cleared")
       honzakJumpScare()    
@@ -130,6 +135,9 @@ export default function animMov() {
   function checkAnimPos(roomVal, randomRoomVal, source, emptySource, boolean) {
     console.log(boolean)
     if (((inRoom != randomRoom && randomRoom == randomRoomVal)) || boolean){
+      if (officecam == 1) {
+        camSwitch.play();
+      }
       camImg.src = "../res/videos/static.gif";
       console.log(inRoom + " asd" + randomRoomVal)
     }
