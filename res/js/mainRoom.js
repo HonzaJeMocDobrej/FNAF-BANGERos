@@ -71,7 +71,7 @@ function puppet() {
 
 function reduceEnergy() {
   energy -= energyDrain;
-  // console.log("Energy reduced by " + energyDrain + ". Current energy:", energy);
+ //  console.log("Energy reduced by " + energyDrain + ". Current energy:", energy);
   energyindicator.innerHTML = parseInt(energy);
   if (energy <= 0) {
     energyindicator.style.display = "none";
@@ -539,7 +539,7 @@ function checkdeath() {
   console.log(puppetStage);
   if (puppetStage > 42) {
     puppetJumpScare();
-    console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky");
+   // console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky");
   }
 }
 setInterval(checkdeath, 100);
