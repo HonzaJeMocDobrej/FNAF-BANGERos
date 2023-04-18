@@ -1,8 +1,9 @@
-import { camImg, chDoorBool, officeImg } from "./mainRoom.js";
+import { camImg, chDoorBool, doorVisibleL, doorVisibleR, honzakJumpScare, officeImg, animDoor, officeAudio, lightSound } from "./mainRoom.js";
 
 export let randomRoom;
 export let roomVisible;
 const btns = document.getElementsByClassName("invBtn");
+
 export default function animMov() {
   let random;
   let interval;
@@ -10,39 +11,56 @@ export default function animMov() {
   let count = 0;
   let leftArr = [1, 4];
   let rightArr = [1, 5];
+  let rightBackArr = [1, 3];
   let randomInt;
 
 
   function unvIntFunc() {
+    
+    //--------------------------Room Logic--------------------------//
 
     if (count == 0) {
       random = 3
       randomRoom = 1
       count++;
-      // console.log("First statement")
     }
 
     else if (count >= 1 && randomRoom == 1) {
       random = Math.floor(Math.random() * 3) + 1;
       randomRoom = Math.floor(Math.random() * 3) + 1;
-      // console.log("Second statement")
     }
 
     else if (randomRoom == 2) {
       leftAndRightLoc(leftArr)
-      // console.log("Left Side")
     }
 
     else if (randomRoom == 3) {
       leftAndRightLoc(rightArr)
-      // console.log("Right Side")
     }
 
-    else if (randomRoom == 4 || randomRoom == 5) {
-      random = Math.floor(Math.random() * 3) + 1;
-      randomRoom = 6;
-      // console.log("Final statement")
+    else if (randomRoom == 4) {
+      random = 2;
+      if (doorVisibleL == 1) {
+        animDoor.play();
+        randomRoom = Math.floor(Math.random() * 2) + 1;
+      }
+      else{
+        randomRoom = 6;
+      }
     }
+    
+    else if (randomRoom == 5) {
+      random = 2;
+      if (doorVisibleR == 1) {
+        animDoor.play();
+        leftAndRightLoc(rightBackArr)
+      }
+      else{
+        randomRoom = 6;
+      }
+    }
+
+    //--------------------------Random Time--------------------------//
 
     if (random == 1) {
       interval = setTimeout(unvIntFunc, 5000);
@@ -75,6 +93,8 @@ export default function animMov() {
     checkAnimPos(2, 2, "res/img/LHallHonzak.png", "res/img/LHallEmpty.png", false);
     checkAnimPos(3, 3, "res/img/RHallHonzak.png", "res/img/RHallEmpty.png", false);
 
+    //--------------------------Changing BG--------------------------//
+
     if (randomRoom == 5 && chDoorBool == 'RL' ) {
       officeImg.src = "./res/img/RHonzak.png"
     }
@@ -96,7 +116,16 @@ export default function animMov() {
     else{
       
     }
+
+    if (randomRoom == 6) {
+      officeAudio.pause();
+      lightSound.pause();
+      clearTimeout(interval);
+      console.log("Interval Cleared")
+      honzakJumpScare()    
+    }
   }
+
 
   function checkAnimPos(roomVal, randomRoomVal, source, emptySource, boolean) {
     console.log(boolean)
