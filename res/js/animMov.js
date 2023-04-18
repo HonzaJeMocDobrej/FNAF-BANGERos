@@ -68,11 +68,11 @@ export default function animMov() {
     }
 
     else if (random == 2) {
-      interval = setTimeout(unvIntFunc, 5000);
+      interval = setTimeout(unvIntFunc, 15000);
     }
 
     else if (random == 3) {
-      interval = setTimeout(unvIntFunc, 5000);
+      interval = setTimeout(unvIntFunc, 25000);
     }
 
 
@@ -122,12 +122,14 @@ export default function animMov() {
     //--------------------------Game Ended By Losing--------------------------//
     
     if (randomRoom == 6) {
-      soundArr.forEach(element => {
-        element.pause();
-      });
       clearTimeout(interval);
       console.log("Interval Cleared")
-      honzakJumpScare()    
+      setTimeout(() => {
+        soundArr.forEach(element => {
+          element.pause();
+        });
+        honzakJumpScare()    
+      }, 2000);
     }
   }
 

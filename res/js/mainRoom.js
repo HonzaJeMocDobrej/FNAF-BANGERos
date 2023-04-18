@@ -15,6 +15,7 @@ let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById("backgroundvideo");
 const video2 = document.getElementById("backgroundvideo2");
 const video3 = document.getElementById("backgroundvideo3");
+const video4 = document.getElementById("backgroundvideo4");
 
 export let officeAudio = document.getElementById("officeAudio");
 export let animDoor = document.getElementById("animDoor");
@@ -23,6 +24,7 @@ let call = document.getElementById("call");
 let openCamera = document.getElementById("openCamera");
 let musicBox = document.getElementById("musicBox");
 let swoosh = document.getElementById("swoosh");
+let honzakJumpscare = document.getElementById("honzakJumpscare");
 export let run = document.getElementById("run");
 export let camSwitch = document.getElementById("camSwitch");
 export let lightSound = document.getElementById("lightSound");
@@ -194,11 +196,11 @@ function bgLL() {
     energyDrain += 0.1;
     chDoorBool = 'RLLL';
     if (randomRoom == 4) {
-      // LHonzakRL
+      officeImg.src = "./res/img/RL_LHonzak.png";
       animDoor.play();
     }
     else if(randomRoom == 5){
-      // RHonzakLL
+      officeImg.src = "./res/img/LL_RHonzak.png";
       animDoor.play();
     }
     else{
@@ -538,6 +540,9 @@ puppetButton.onmouseup = () => {
 function checkdeath() {
   console.log(puppetStage);
   if (puppetStage > 42) {
+    soundArr.forEach(element => {
+      element.pause();
+    });
     puppetJumpScare();
    // console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky");
   }
@@ -557,15 +562,18 @@ function puppetJumpScare() {
 }
 
 export function honzakJumpScare() {
+  honzakJumpscare.play();
   energyindicator.style.display = "none";
   time.style.display = "none";
-  video.play();
+  officeImg.src = "./res/videos/honzak.gif";
+  officeImg.style.width = '80vw';
+  officeImg.style.height = '80vh';
   camera.style.display = "none";
-  backgroundvideo.style.display = "block";
+  backgroundvideo4.style.display = "block";
   camImg.style.display = "none";
   mapContainer.style.display = "none";
-  game.style.display = "none";
-  setInterval(death, 53000);
+  turnaround.style.display = "none";
+  setInterval(death, 2000);
 }
 
 
