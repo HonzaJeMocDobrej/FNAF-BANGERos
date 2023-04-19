@@ -3,7 +3,7 @@
 
 
 
-<b>Game By</b>: [HonzaJeMocDobrej](https://github.com/HonzaJeMocDobrej), [gr0nn1x](https://github.com/gr0nn1x), [DelFaa365](https://github.com/DelFaa365)
+<b>Game By :</b> [HonzaJeMocDobrej](https://github.com/HonzaJeMocDobrej), [gr0nn1x](https://github.com/gr0nn1x), [DelFaa365](https://github.com/DelFaa365)
 
 
 
