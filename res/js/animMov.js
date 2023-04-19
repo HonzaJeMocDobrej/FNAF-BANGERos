@@ -128,12 +128,17 @@ export default function animMov() {
         soundArr.forEach(element => {
           element.pause();
         });
-        honzakJumpScare()    
-        death() 
+        honzakJumpScare()  
+          
       }, 5000);
+      setTimeout(death, 10000);
     }
   }
-
+  function death() {
+    window.location.href = "index.html";
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    turnaround.style.display = "none";
+  }
 
   function checkAnimPos(roomVal, randomRoomVal, source, emptySource, boolean) {
     console.log(boolean)

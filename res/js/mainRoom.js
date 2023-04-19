@@ -33,7 +33,7 @@ export let lightSound = document.getElementById("lightSound");
 export let soundArr = [call, officeAudio, musicBox, run, lightSound];
 
 const time = document.getElementById("time");
-const turnaround = document.getElementById("turnaround");
+export const turnaround = document.getElementById("turnaround");
 const puppetButton = document.getElementById("puppetButton");
 let game = document.getElementById("game");
 
@@ -48,8 +48,9 @@ let time1 = 0;
 let puppetStage = 0;
 export let chDoorBool = '';
 
-export function death() {
+function death() {
   window.location.href = "index.html";
+  console.log("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
 }
 
 function puppet() {
@@ -124,7 +125,7 @@ function frame() {
 }
 window.onload = function () {
   setInterval(reduceEnergy, 960);
-  setInterval(reducetime, 113000);
+  setInterval(reducetime, 70000);
   setInterval(puppet, 2000);
   setInterval(frame, 2000);
   call.play();
@@ -573,8 +574,7 @@ export function honzakJumpScare() {
   camera.style.display = "none";
   backgroundvideo4.style.display = "block";
   mapContainer.style.display = "none";
-  turnaround.style.display = "none";
-  setInterval(death, 2000);
+  setInterval(window.location.href = "index.html", 4200);
 }
 
 
