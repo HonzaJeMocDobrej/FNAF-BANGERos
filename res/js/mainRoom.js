@@ -45,7 +45,7 @@ export let officecam = 0;
 let energy = 100;
 let energyDrain = 0.1;
 let time1 = 0;
-let puppetStage = -500;
+let puppetStage = 0;
 export let chDoorBool = '';
 
 export function death() {
@@ -577,6 +577,7 @@ export function honzakJumpScare() {
   turnaround.style.display = "none";
   camBgContainer.style.display = "none";
   game.style.display = "none";
+  turnaround.style.diaply = "none";
   setInterval(death, 5000);
 }
 
