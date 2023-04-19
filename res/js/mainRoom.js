@@ -16,6 +16,7 @@ const video = document.getElementById("backgroundvideo");
 const video2 = document.getElementById("backgroundvideo2");
 const video3 = document.getElementById("backgroundvideo3");
 const video4 = document.getElementById("backgroundvideo4");
+const video5 = document.getElementById("honzajs");
 
 export let officeAudio = document.getElementById("officeAudio");
 export let animDoor = document.getElementById("animDoor");
@@ -24,7 +25,7 @@ let call = document.getElementById("call");
 let openCamera = document.getElementById("openCamera");
 let musicBox = document.getElementById("musicBox");
 let swoosh = document.getElementById("swoosh");
-let honzakJumpscare = document.getElementById("honzakJumpscare");
+export let honzakJumpscare = document.getElementById("honzakJumpscare");
 export let run = document.getElementById("run");
 export let camSwitch = document.getElementById("camSwitch");
 export let lightSound = document.getElementById("lightSound");
@@ -44,10 +45,10 @@ export let officecam = 0;
 let energy = 100;
 let energyDrain = 0.1;
 let time1 = 0;
-let puppetStage = 0;
+let puppetStage = -500;
 export let chDoorBool = '';
 
-function death() {
+export function death() {
   window.location.href = "index.html";
 }
 
@@ -78,9 +79,9 @@ function reduceEnergy() {
   if (energy <= 0) {
     energyindicator.style.display = "none";
     time.style.display = "none";
-    officeImg.src = "./res/videos/project.mp4";
+    officeImg.src = "./res/videos/honzakjs.mp4";
     clearInterval(reduceEnergy);
-    video.play();
+    video5.play();
     camera.style.display = "none";
     backgroundvideo.style.display = "block";
     camImg.style.display = "none";
@@ -562,10 +563,11 @@ function puppetJumpScare() {
 }
 
 export function honzakJumpScare() {
-  honzakJumpscare.play();
   energyindicator.style.display = "none";
   time.style.display = "none";
-  officeImg.src = "./res/videos/honzak.gif";
+  officeImg.src = "./res/videos/honzakjs.mp4";
+  video5.play();
+  honzajs.style.display = "block";
   officeImg.style.width = '80vw';
   officeImg.style.height = '80vh';
   camera.style.display = "none";
@@ -573,9 +575,10 @@ export function honzakJumpScare() {
   camImg.style.display = "none";
   mapContainer.style.display = "none";
   turnaround.style.display = "none";
-  setInterval(death, 2000);
+  camBgContainer.style.display = "none";
+  game.style.display = "none";
+  setInterval(death, 5000);
 }
-
 
 
 

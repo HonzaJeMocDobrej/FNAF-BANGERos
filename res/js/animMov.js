@@ -129,7 +129,8 @@ export default function animMov() {
           element.pause();
         });
         honzakJumpScare()    
-      }, 2000);
+        death() 
+      }, 5000);
     }
   }
 
