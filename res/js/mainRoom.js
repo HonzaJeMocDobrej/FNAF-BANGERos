@@ -21,6 +21,7 @@ const video5 = document.getElementById("honzajs");
 export let officeAudio = document.getElementById("officeAudio");
 export let animDoor = document.getElementById("animDoor");
 let doorSlam = document.getElementById("doorSlam");
+let puppetButtonAll = document.getElementById("puppetButtonAll");
 let call = document.getElementById("call");
 let openCamera = document.getElementById("openCamera");
 let musicBox = document.getElementById("musicBox");
@@ -31,22 +32,35 @@ export let camSwitch = document.getElementById("camSwitch");
 export let lightSound = document.getElementById("lightSound");
 
 export let soundArr = [call, officeAudio, musicBox, run, lightSound];
-
+let mode = localStorage.getItem("mode");
 const time = document.getElementById("time");
 export const turnaround = document.getElementById("turnaround");
 const puppetButton = document.getElementById("puppetButton");
 let game = document.getElementById("game");
-
+const start2 = document.getElementById("start2");
 let lightVisibleR = 0;
 let lightVisibleL = 0;
 export let doorVisibleL = 0;
 export let doorVisibleR = 0;
 export let officecam = 0;
+let puppetTime;
+let frameTime;
 let energy = 100;
-let energyDrain = 0.1;
+export let energyDrain;
 let time1 = 0;
 let puppetStage = 0;
-export let chDoorBool = '';
+export let chDoorBool = "";
+if (mode == 0) {
+energyDrain = 0.2;
+puppetTime = 2000;
+frameTime = 2000;
+}
+else if (mode == 1) {
+energyDrain = 0.3;
+puppetTime = 1000;
+frameTime = 1000;
+
+}
 
 function death() {
   window.location.href = "index.html";
@@ -56,9 +70,7 @@ function death() {
 function puppet() {
   if (randomRoom == 6 || energy <= 0) {
     puppetStage += 0;
-
-  }
-  else{
+  } else {
     puppetStage += 1;
   }
   // console.log("puppet stage=" + puppetStage);
@@ -75,7 +87,7 @@ function puppet() {
 
 function reduceEnergy() {
   energy -= energyDrain;
- //  console.log("Energy reduced by " + energyDrain + ". Current energy:", energy);
+  //  console.log("Energy reduced by " + energyDrain + ". Current energy:", energy);
   energyindicator.innerHTML = parseInt(energy);
   if (energy <= 0) {
     energyindicator.style.display = "none";
@@ -89,7 +101,7 @@ function reduceEnergy() {
     mapContainer.style.display = "none";
     // playagain.style.display = "block";
     turnaround.style.display = "none";
-    soundArr.forEach(element => {
+    soundArr.forEach((element) => {
       element.pause();
     });
     setInterval(death, 51000);
@@ -102,13 +114,16 @@ function reducetime() {
     officeImg.src = "./res/videos/sixAM.mp4";
     video2.play();
     camera.style.display = "none";
-    backgroundvideo2.style.display = "block";
+    setInterval(reducetime2, 850);
     camImg.style.display = "none";
     mapContainer.style.display = "none";
     energyindicator.style.display = "none";
     time.style.display = "none";
     setInterval(death, 9000);
   }
+}
+function reducetime2() {
+  setInterval((backgroundvideo2.style.display = "block"), 1000);
 }
 
 function move() {
@@ -128,9 +143,9 @@ function frame() {
 }
 window.onload = function () {
   setInterval(reduceEnergy, 960);
-  setInterval(reducetime, 70000);
-  setInterval(puppet, 2000);
-  setInterval(frame, 2000);
+  setInterval(reducetime, 45000);
+  setInterval(puppet, puppetTime);
+  setInterval(frame, frameTime);
   call.play();
   officeAudio.play();
 };
@@ -141,12 +156,12 @@ lightBtnL.onclick = () => {
 
 lightBtnR.onclick = () => {
   bgRL();
-  console.log("chDoorBool " + chDoorBool)
+  console.log("chDoorBool " + chDoorBool);
 };
 
 doorBtnL.onclick = () => {
   bgLD();
-  console.log("doorVisibleL " + doorVisibleL)
+  console.log("doorVisibleL " + doorVisibleL);
   doorSlam.load();
   doorSlam.play();
 };
@@ -168,60 +183,55 @@ function bgLL() {
     lightVisibleL = 1;
     console.log("left");
     energyDrain += 0.1;
-    chDoorBool = 'LL';
+    chDoorBool = "LL";
     if (randomRoom == 4) {
       officeImg.src = "./res/img/LHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/LL.webp";
     }
   } else if (lightVisibleL == 1 && lightVisibleR == 1) {
     lightVisibleL = 0;
     console.log("right");
     energyDrain -= 0.1;
-    chDoorBool = 'RL';  
-      if (randomRoom == 5) {
-        officeImg.src = "./res/img/RHonzak.png";
-        animDoor.play();
-      }
-      else{
-        officeImg.src = "./res/img/RL.webp";
-      }
+    chDoorBool = "RL";
+    if (randomRoom == 5) {
+      officeImg.src = "./res/img/RHonzak.png";
+      animDoor.play();
+    } else {
+      officeImg.src = "./res/img/RL.webp";
+    }
   } else if (lightVisibleL == 1 && lightVisibleR == 0 && doorVisibleR == 0) {
     officeImg.src = "./res/img/Default.webp";
     lightVisibleL = 0;
     console.log("none");
     energyDrain -= 0.1;
-    chDoorBool = '';
+    chDoorBool = "";
     lightSound.pause();
   } else if (lightVisibleL == 0 && lightVisibleR == 1 && doorVisibleL == 0) {
     lightVisibleL = 1;
     console.log("both");
     energyDrain += 0.1;
-    chDoorBool = 'RLLL';
+    chDoorBool = "RLLL";
     if (randomRoom == 4) {
       officeImg.src = "./res/img/RL_LHonzak.png";
       animDoor.play();
-    }
-    else if(randomRoom == 5){
+    } else if (randomRoom == 5) {
       officeImg.src = "./res/img/LL_RHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/RL_LL.webp";
     }
   } else if (lightVisibleL == 0 && doorVisibleR == 1 && doorVisibleL == 0) {
     lightVisibleL = 1;
     console.log("light door");
     energyDrain += 0.1;
-    chDoorBool = 'RDLL';
+    chDoorBool = "RDLL";
     lightSound.play();
     if (randomRoom == 4) {
-      officeImg.src = "./res/img/LHonzakRClosed.png"
+      officeImg.src = "./res/img/LHonzakRClosed.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/RD_LL.webp";
     }
   } else if (lightVisibleL == 1 && doorVisibleR == 1) {
@@ -245,25 +255,23 @@ function bgRL() {
     lightVisibleR = 1;
     console.log("right");
     energyDrain += 0.1;
-    chDoorBool = 'RL';
+    chDoorBool = "RL";
     lightSound.play();
     if (randomRoom == 5) {
       officeImg.src = "./res/img/RHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/RL.webp";
     }
   } else if (lightVisibleL == 1 && lightVisibleR == 1) {
     lightVisibleR = 0;
     console.log("left");
     energyDrain -= 0.1;
-    chDoorBool = 'LL';
+    chDoorBool = "LL";
     if (randomRoom == 4) {
       officeImg.src = "./res/img/LHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/LL.webp";
     }
   } else if (lightVisibleL == 0 && lightVisibleR == 1 && doorVisibleL == 0) {
@@ -271,35 +279,32 @@ function bgRL() {
     lightVisibleR = 0;
     energyDrain -= 0.1;
     console.log("none");
-    chDoorBool = '';
+    chDoorBool = "";
     lightSound.pause();
   } else if (lightVisibleL == 1 && lightVisibleR == 0 && doorVisibleR == 0) {
     lightVisibleR = 1;
     console.log("both");
     energyDrain += 0.1;
-    chDoorBool = 'RLLL';
+    chDoorBool = "RLLL";
     if (randomRoom == 4) {
       officeImg.src = "./res/img/RL_LHonzak.png";
       animDoor.play();
-    }
-    else if(randomRoom == 5){
+    } else if (randomRoom == 5) {
       officeImg.src = "./res/img/LL_RHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/RL_LL.webp";
     }
   } else if (lightVisibleR == 0 && doorVisibleL == 1 && doorVisibleR == 0) {
     lightVisibleR = 1;
     console.log("light door");
     energyDrain += 0.1;
-    chDoorBool = 'LDRL';
+    chDoorBool = "LDRL";
     lightSound.play();
     if (randomRoom == 5) {
-      officeImg.src = "./res/img/RHonzakLClosed.png"
+      officeImg.src = "./res/img/RHonzakLClosed.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/LD_RL.webp";
     }
   } else if (lightVisibleR == 1 && doorVisibleL == 1) {
@@ -314,29 +319,25 @@ function bgRL() {
 }
 
 function bgLD() {
-  if (
-    doorVisibleL == 0 &&
-    doorVisibleR == 0 &&
-    lightVisibleR == 0
-  ) {
+  if (doorVisibleL == 0 && doorVisibleR == 0 && lightVisibleR == 0) {
     officeImg.src = "./res/img/LD.webp";
     doorVisibleL++;
     console.log("left");
     energyDrain += 0.1;
     lightVisibleL = 0;
-    chDoorBool = '';
+    chDoorBool = "";
     lightSound.pause();
   } else if (doorVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/RD.webp";
     doorVisibleL = 0;
     console.log("right");
     energyDrain -= 0.1;
-    chDoorBool = '';
+    chDoorBool = "";
   } else if (doorVisibleL == 1 && doorVisibleR == 0 && lightVisibleR == 0) {
     officeImg.src = "./res/img/Default.webp";
     doorVisibleL = 0;
     console.log("none");
-    chDoorBool = '';
+    chDoorBool = "";
     energyDrain -= 0.1;
   } else if (doorVisibleL == 0 && doorVisibleR == 1) {
     officeImg.src = "./res/img/RD_LD.webp";
@@ -344,32 +345,30 @@ function bgLD() {
     lightVisibleL = 0;
     console.log("both");
     energyDrain += 0.1;
-    chDoorBool = '';
+    chDoorBool = "";
     lightSound.pause();
   } else if (lightVisibleR == 1 && doorVisibleL == 0) {
     doorVisibleL = 1;
     lightVisibleL = 0;
     console.log("light door");
     energyDrain += 0.1;
-    chDoorBool = 'LDRL';
+    chDoorBool = "LDRL";
     lightSound.play();
     if (randomRoom == 5) {
-      officeImg.src = "./res/img/RHonzakLClosed.png"
+      officeImg.src = "./res/img/RHonzakLClosed.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/LD_RL.webp";
     }
   } else if (lightVisibleR == 1 && doorVisibleL == 1) {
     doorVisibleL = 0;
     console.log("light");
     energyDrain -= 0.1;
-    chDoorBool = 'RL';
+    chDoorBool = "RL";
     if (randomRoom == 5) {
       officeImg.src = "./res/img/RHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/RL.webp";
     }
   }
@@ -378,62 +377,56 @@ function bgLD() {
 }
 
 function bgRD() {
-  if (
-    doorVisibleL == 0 &&
-    doorVisibleR == 0 &&
-    lightVisibleL == 0
-  ) {
+  if (doorVisibleL == 0 && doorVisibleR == 0 && lightVisibleL == 0) {
     officeImg.src = "./res/img/RD.webp";
     doorVisibleR++;
     console.log("right");
     energyDrain += 0.1;
     lightVisibleR = 0;
-    chDoorBool = '';
+    chDoorBool = "";
     lightSound.pause();
   } else if (doorVisibleL == 1 && doorVisibleR == 1) {
     officeImg.src = "./res/img/LD.webp";
     doorVisibleR = 0;
     console.log("left");
     energyDrain -= 0.1;
-    chDoorBool = '';
+    chDoorBool = "";
   } else if (doorVisibleL == 0 && doorVisibleR == 1 && lightVisibleL == 0) {
     officeImg.src = "./res/img/Default.webp";
     doorVisibleR = 0;
     console.log("none");
     energyDrain -= 0.1;
-    chDoorBool = '';
+    chDoorBool = "";
   } else if (doorVisibleL == 1 && doorVisibleR == 0) {
     officeImg.src = "./res/img/RD_LD.webp";
     doorVisibleR = 1;
     lightVisibleR = 0;
     console.log("both");
     energyDrain += 0.1;
-    chDoorBool = '';
+    chDoorBool = "";
     lightSound.pause();
   } else if (lightVisibleL == 1 && doorVisibleR == 0) {
     doorVisibleR = 1;
     lightVisibleR = 0;
     console.log("light door");
     energyDrain += 0.1;
-    chDoorBool = 'RDLL';
+    chDoorBool = "RDLL";
     lightSound.play();
     if (randomRoom == 4) {
-      officeImg.src = "./res/img/LHonzakRClosed.png"
+      officeImg.src = "./res/img/LHonzakRClosed.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/RD_LL.webp";
     }
   } else if (lightVisibleL == 1 && doorVisibleR == 1) {
     doorVisibleR = 0;
     console.log("light");
     energyDrain -= 0.1;
-    chDoorBool = 'LL';
+    chDoorBool = "LL";
     if (randomRoom == 4) {
       officeImg.src = "./res/img/LHonzak.png";
       animDoor.play();
-    }
-    else{
+    } else {
       officeImg.src = "./res/img/LL.webp";
     }
   }
@@ -484,6 +477,7 @@ turnaround.onclick = () => {
     camera.style.display = "none";
     energyindicator.style.display = "none";
     puppetButton.style.display = "block";
+    puppetButtonAll.style.display = "block";
     myProgress.style.display = "block";
   } else if (officecam == 2) {
     musicBox.pause();
@@ -492,6 +486,7 @@ turnaround.onclick = () => {
     behindImg.style.display = "none";
     camera.style.display = "block";
     energyindicator.style.display = "block";
+    puppetButtonAll.style.display = "none";
     puppetButton.style.display = "none";
     myProgress.style.display = "none";
   }
@@ -531,13 +526,13 @@ function reducePuppet() {
   }
 }
 
-puppetButton.onmousedown = () => {
+puppetButtonAll.onmousedown = () => {
   x = setInterval(reducePuppet, 100);
   puppetButton.style.backgroundColor = "white";
   clearInterval(frame);
 };
 
-puppetButton.onmouseup = () => {
+puppetButtonAll.onmouseup = () => {
   clearInterval(x);
   puppetButton.style.backgroundColor = "grey";
 };
@@ -545,11 +540,11 @@ puppetButton.onmouseup = () => {
 function checkdeath() {
   console.log(puppetStage);
   if (puppetStage > 42) {
-    soundArr.forEach(element => {
+    soundArr.forEach((element) => {
       element.pause();
     });
     puppetJumpScare();
-   // console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky");
+    // console.log("jnkdvkyskmůknjb cjnjiasvmdynhvnjardvdjkkjdky");
   }
 }
 setInterval(checkdeath, 100);
@@ -572,16 +567,13 @@ export function honzakJumpScare() {
   officeImg.src = "./res/videos/honzakjs.mp4";
   video5.play();
   honzajs.style.display = "block";
-  officeImg.style.width = '80vw';
-  officeImg.style.height = '80vh';
+  officeImg.style.width = "80vw";
+  officeImg.style.height = "80vh";
   camera.style.display = "none";
   mapContainer.style.display = "none";
   camImg.style.display = "none";
   myProgress.style.display = "none";
   backgroundvideo4.style.display = "block";
   puppetButton.style.display = "none";
-  setInterval(window.location.href = "index.html", 4200);
+  setInterval((window.location.href = "index.html"), 4200);
 }
-
-
-

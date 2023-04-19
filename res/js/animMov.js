@@ -122,7 +122,7 @@ export default function animMov() {
     //--------------------------Game Ended By Losing--------------------------//
     
     if (randomRoom == 6) {
-      clearTimeout(interval);
+     clearTimeout(interval);
       console.log("Interval Cleared")
       setTimeout(() => {
         soundArr.forEach(element => {
