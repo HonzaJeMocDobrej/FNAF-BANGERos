@@ -154,7 +154,7 @@ export default function animMov() {
       if (officecam == 1) {
         camSwitch.play();
       }
-      camImg.src = "../res/videos/static.gif";
+      camImg.src = "./res/videos/static.gif";
       console.log(inRoom + " asd" + randomRoomVal)
     }
       setTimeout(() => {
