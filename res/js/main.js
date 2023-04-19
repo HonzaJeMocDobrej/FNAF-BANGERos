@@ -3,6 +3,9 @@ const text = document.getElementById("text");
 const video4 = document.getElementById("backgroundvideo4");
 const indexBackgroundMusic = document.getElementById("indexBackgroundMusic");
 const tutorial = document.getElementById("tutorial");
+const tutorial2 = document.getElementById("tutorial2");
+const wantToPlay = document.getElementById("wantToPlay");
+const back = document.getElementById("back");
 
 button.onclick = () => {
     text.style.display = "none";
@@ -12,8 +15,22 @@ button.onclick = () => {
     indexBackgroundMusic.play();
   };
 
-tutorial.onclik = () => {
-
-
+tutorial.onclick = () => {
+tutorial2.style.display = "block";
+button.style.display = "none";
+video4.style.display= "none";
+start.style.display= "none";
+tutorial.style.display= "none";
+honzabg.style.display="none";
+back.style.display="block";
 
 }
+back.onclick = () => {
+  tutorial2.style.display = "none";
+  button.style.display = "block";
+  video4.style.display= "block";
+  start.style.display= "block";
+  tutorial.style.display= "block";
+  honzabg.style.display="block";
+  back.style.display="none";
+  }
