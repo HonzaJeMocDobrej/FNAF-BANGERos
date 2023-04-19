@@ -6,31 +6,44 @@ const tutorial = document.getElementById("tutorial");
 const tutorial2 = document.getElementById("tutorial2");
 const wantToPlay = document.getElementById("wantToPlay");
 const back = document.getElementById("back");
+const start = document.getElementById("start");
 
 button.onclick = () => {
-    text.style.display = "none";
-    button.style.display = "none";
-    wantToPlay.style.display = "block";
-    video4.play();
-    indexBackgroundMusic.play();
-  };
+  text.style.display = "none";
+  button.style.display = "none";
+  wantToPlay.style.display = "block";
+  video4.play();
+  indexBackgroundMusic.play();
+};
 
 tutorial.onclick = () => {
-tutorial2.style.display = "block";
-button.style.display = "none";
-video4.style.display= "none";
-start.style.display= "none";
-tutorial.style.display= "none";
-honzabg.style.display="none";
-back.style.display="block";
-
-}
+  tutorial2.style.display = "block";
+  button.style.display = "none";
+  video4.style.display = "none";
+  start.style.display = "none";
+  tutorial.style.display = "none";
+  honzabg.style.display = "none";
+  back.style.display = "block";
+};
 back.onclick = () => {
   tutorial2.style.display = "none";
   button.style.display = "block";
-  video4.style.display= "block";
-  start.style.display= "block";
-  tutorial.style.display= "block";
-  honzabg.style.display="block";
-  back.style.display="none";
-  }
+  video4.style.display = "block";
+  start.style.display = "block";
+  tutorial.style.display = "block";
+  honzabg.style.display = "block";
+  back.style.display = "none";
+};
+
+start.onmouseover = () => {
+  start.innerHTML = `>>> PLAY`;
+};
+start.onmouseleave = () => {
+  start.innerHTML = `Play`;
+};
+tutorial.onmouseover = () => {
+  tutorial.innerHTML = `>>> TUTORIAL`;
+};
+tutorial.onmouseleave = () => {
+  tutorial.innerHTML = `Tutorial`;
+};
