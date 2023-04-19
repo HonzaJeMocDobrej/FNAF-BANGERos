@@ -327,6 +327,7 @@ body {
 #back:hover {
   font-size: 130px;
   cursor: pointer;
+  left:3%;
 }
 
 #tutorial2 {

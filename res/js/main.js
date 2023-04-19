@@ -23,6 +23,7 @@ tutorial.onclick = () => {
   start.style.display = "none";
   tutorial.style.display = "none";
   honzabg.style.display = "none";
+  noc.style.display = "none";
   back.style.display = "block";
 };
 back.onclick = () => {
@@ -32,6 +33,7 @@ back.onclick = () => {
   start.style.display = "block";
   tutorial.style.display = "block";
   honzabg.style.display = "block";
+  noc.style.display = "block";
   back.style.display = "none";
 };
 
