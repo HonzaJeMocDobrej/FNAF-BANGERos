@@ -10,7 +10,7 @@ export let camera = document.getElementById("camera");
 let mapContainer = document.getElementById("mapContainer");
 export let camImg = document.getElementById("camImg");
 let freddynose = document.getElementById("freddynose");
-let playagain = document.getElementById("playagain");
+// let playagain = document.getElementById("playagain");
 let audio = new Audio("../res/sound/honk.mp3");
 const video = document.getElementById("backgroundvideo");
 const video2 = document.getElementById("backgroundvideo2");
@@ -53,7 +53,7 @@ export function death() {
 }
 
 function puppet() {
-  if (randomRoom == 6) {
+  if (randomRoom == 6 || energy <= 0) {
     puppetStage += 0;
 
   }
@@ -79,16 +79,19 @@ function reduceEnergy() {
   if (energy <= 0) {
     energyindicator.style.display = "none";
     time.style.display = "none";
-    officeImg.src = "./res/videos/honzakjs.mp4";
+    officeImg.style.display = "none";
     clearInterval(reduceEnergy);
-    video5.play();
+    video.play();
     camera.style.display = "none";
     backgroundvideo.style.display = "block";
     camImg.style.display = "none";
     mapContainer.style.display = "none";
-    playagain.style.display = "block";
+    // playagain.style.display = "block";
     turnaround.style.display = "none";
-    setInterval(death, 50000);
+    soundArr.forEach(element => {
+      element.pause();
+    });
+    setInterval(death, 51000);
   }
 }
 function reducetime() {
@@ -571,9 +574,11 @@ export function honzakJumpScare() {
   officeImg.style.width = '80vw';
   officeImg.style.height = '80vh';
   camera.style.display = "none";
-  backgroundvideo4.style.display = "block";
   mapContainer.style.display = "none";
   turnaround.style.display = "none";
+  camImg.style.display = "none";
+  myProgress.style.display = "none";
+  puppetButton.style.display = "none";
   setInterval(death, 2000);
 }
 
