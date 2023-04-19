@@ -572,13 +572,9 @@ export function honzakJumpScare() {
   officeImg.style.height = '80vh';
   camera.style.display = "none";
   backgroundvideo4.style.display = "block";
-  camImg.style.display = "none";
   mapContainer.style.display = "none";
   turnaround.style.display = "none";
-  camBgContainer.style.display = "none";
-  game.style.display = "none";
-  turnaround.style.diaply = "none";
-  setInterval(death, 5000);
+  setInterval(death, 2000);
 }
 
 

@@ -68,11 +68,11 @@ export default function animMov() {
     }
 
     else if (random == 2) {
-      interval = setTimeout(unvIntFunc, 15000);
+      interval = setTimeout(unvIntFunc, 5000);
     }
 
     else if (random == 3) {
-      interval = setTimeout(unvIntFunc, 25000);
+      interval = setTimeout(unvIntFunc, 5000);
     }
 
 
