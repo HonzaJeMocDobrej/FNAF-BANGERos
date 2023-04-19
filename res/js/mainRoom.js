@@ -45,10 +45,10 @@ export let doorVisibleR = 0;
 export let officecam = 0;
 let puppetTime;
 let frameTime;
-let energy = 100;
+export let energy = 100;
 export let energyDrain;
-let time1 = 0;
-let puppetStage = 0;
+export let time1 = 0;
+export let puppetStage = 0;
 export let chDoorBool = "";
 if (mode == 0) {
 energyDrain = 0.2;
@@ -68,7 +68,7 @@ function death() {
 }
 
 function puppet() {
-  if (randomRoom == 6 || energy <= 0) {
+  if (randomRoom == 6 || energy <= 0 || time1 >= 6) {
     puppetStage += 0;
   } else {
     puppetStage += 1;
@@ -116,6 +116,7 @@ function reducetime() {
     camera.style.display = "none";
     setInterval(reducetime2, 850);
     camImg.style.display = "none";
+    turnaround.style.display = "none";
     mapContainer.style.display = "none";
     energyindicator.style.display = "none";
     time.style.display = "none";
