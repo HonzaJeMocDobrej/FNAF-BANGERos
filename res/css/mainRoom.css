@@ -160,6 +160,10 @@ body {
   background-color: grey;
 }
 
+#firstBtn{
+  background-color: grey;
+}
+
 #mapContainer > :nth-child(2) {
   top: 11%;
   left: 53%;

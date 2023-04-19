@@ -28,6 +28,7 @@ tutorial.onclick = () => {
   button.style.display = "none";
   video4.style.display = "none";
   start.style.display = "none";
+  start2.style.display = "none";
   tutorial.style.display = "none";
   honzabg.style.display = "none";
   noc.style.display = "none";
@@ -39,6 +40,7 @@ back.onclick = () => {
   button.style.display = "block";
   video4.style.display = "block";
   start.style.display = "block";
+  start2.style.display = "block";
   tutorial.style.display = "block";
   honzabg.style.display = "block";
   noc.style.display = "block";
