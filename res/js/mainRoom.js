@@ -17,6 +17,7 @@ const video2 = document.getElementById("backgroundvideo2");
 const video3 = document.getElementById("backgroundvideo3");
 const video4 = document.getElementById("backgroundvideo4");
 const video5 = document.getElementById("honzajs");
+const mutecall = document.getElementById("mutecall");
 
 export let officeAudio = document.getElementById("officeAudio");
 export let animDoor = document.getElementById("animDoor");
@@ -576,4 +577,9 @@ export function honzakJumpScare() {
   backgroundvideo4.style.display = "block";
   puppetButton.style.display = "none";
   setInterval((window.location.href = "index.html"), 4200);
+}
+
+mutecall.onclick = () => {
+mutecall.style.display= "none";
+call.pause();
 }

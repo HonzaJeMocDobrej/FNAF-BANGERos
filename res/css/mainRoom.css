@@ -402,3 +402,29 @@ rgb(0, 0, 0) 2.88051px -0.838247px 0px;
   height: 100%;
   display: none;
 }
+
+#mutecall {
+  width: 20%;
+  border-color: red;
+  color: red;
+  background-color: none;
+  border: 1px solid;
+  height: 50px;
+  position: absolute;
+  cursor: default;
+  top: 10%;
+  left: 7%;
+  right: 5%;
+  font-size: 250%;
+  text-align: center;
+}
+#helpWanted {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background-image:url(../img/frontimage.png) ;
+  display:none;
+
+
+}

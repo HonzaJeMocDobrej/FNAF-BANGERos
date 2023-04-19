@@ -10,6 +10,7 @@ const wantToPlay = document.getElementById("wantToPlay");
 const back = document.getElementById("back");
 const start = document.getElementById("start");
 const start2 = document.getElementById("start2");
+const helpWanted = document.getElementById("helpWanted");
 
 let mode = 0;
 
@@ -66,10 +67,12 @@ start2.onmouseleave = () => {
 };
 
 start.onclick = () => {
+setTimeout(helpWanted2(),5000);
 mode = 0;
 localStorage.setItem("mode", mode);
 }
 start2.onclick = () => {
+  setTimeout(helpWanted2(),5000);
   mode = 1;
   localStorage.setItem("mode", mode);
   }
@@ -77,3 +80,17 @@ start2.onclick = () => {
 localStorage.setItem("mode", mode);
 
 
+function helpWanted2 () {
+  tutorial2.style.display = "none";
+  button.style.display = "none";
+  video4.style.display = "none";
+  start.style.display = "none";
+  tutorial.style.display = "none";
+  honzabg.style.display = "none";
+  noc.style.display = "none";
+  back.style.display = "none";
+  start2.style.display = "none";
+  helpWanted.style.display = "block";
+
+
+}
