@@ -565,14 +565,27 @@ export function honzakJumpScare() {
   honzakJumpscare.play();
   energyindicator.style.display = "none";
   time.style.display = "none";
-  officeImg.src = "./res/videos/honzak.gif";
-  officeImg.style.width = '80vw';
-  officeImg.style.height = '80vh';
   camera.style.display = "none";
   backgroundvideo4.style.display = "block";
-  camImg.style.display = "none";
   mapContainer.style.display = "none";
   turnaround.style.display = "none";
+  if (officecam == 0) {
+    officeImg.src = "./res/videos/honzak.gif";
+    officeImg.style.width = '80vw';
+    officeImg.style.height = '80vh';
+  }
+  else if (officecam == 1) {
+    camImg.src = "./res/videos/honzak.gif";
+    camImg.style.width = '80vw';
+    camImg.style.height = '80vh';
+  }
+  else if (officecam == 2) {
+    behindImg.src = "./res/videos/honzak.gif";
+    behindImg.style.width = '80vw';
+    behindImg.style.height = '80vh';
+    myProgress.style.display = "none";
+    puppetButton.style.display = "none";
+  }
   setInterval(death, 2000);
 }
 
