@@ -31,6 +31,7 @@ tutorial.onclick = () => {
   honzabg.style.display = "none";
   noc.style.display = "none";
   back.style.display = "block";
+  start2.style.display = "none";
 };
 back.onclick = () => {
   tutorial2.style.display = "none";
@@ -41,6 +42,7 @@ back.onclick = () => {
   honzabg.style.display = "block";
   noc.style.display = "block";
   back.style.display = "none";
+  start2.style.display = "block";
 };
 
 start.onmouseover = () => {

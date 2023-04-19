@@ -51,12 +51,12 @@ let time1 = 0;
 let puppetStage = 0;
 export let chDoorBool = "";
 if (mode == 0) {
-energyDrain = 0.2;
+energyDrain = 0.15;
 puppetTime = 2000;
 frameTime = 2000;
 }
 else if (mode == 1) {
-energyDrain = 0.3;
+energyDrain = 0.25;
 puppetTime = 1000;
 frameTime = 1000;
 
