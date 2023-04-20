@@ -96,3 +96,20 @@ function helpWanted2 () {
 
 
 }
+
+let tut = false
+function tutMove(){
+  console.log("??")
+  setTimeout(() => {
+    if(tut == false){
+      tutorial2.style.backgroundImage = "url(./res/img/tutorial2.png)"
+      tut = true;
+    } else {
+      tutorial2.style.backgroundImage = "url(./res/img/tutorial1.png)"
+      tut = false;
+    }
+    tutMove();
+  }, 15000);
+}
+
+tutMove();

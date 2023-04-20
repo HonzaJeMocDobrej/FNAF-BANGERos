@@ -1,9 +1,8 @@
-import { camImg, chDoorBool, doorVisibleL, doorVisibleR, honzakJumpScare, officeImg, run, officeAudio, lightSound, camSwitch, officecam, soundArr, energy, time1, puppetStage } from "./mainRoom.js";
+import { camImg, chDoorBool, doorVisibleL, doorVisibleR, honzakJumpScare, officeImg, run, officeAudio, lightSound, camSwitch, officecam, soundArr } from "./mainRoom.js";
 
 export let randomRoom;
 export let roomVisible;
 const btns = document.getElementsByClassName("invBtn");
-const firstBtn = document.getElementById("firstBtn");
 
 export default function animMov() {
   let random;
@@ -64,16 +63,16 @@ export default function animMov() {
     //--------------------------Random Time--------------------------//
 
     if (random == 1) {
-      interval = setTimeout(unvIntFunc, 8000);
+      interval = setTimeout(unvIntFunc, 5000);
 
     }
 
     else if (random == 2) {
-      interval = setTimeout(unvIntFunc, 12000);
+      interval = setTimeout(unvIntFunc, 15000);
     }
 
     else if (random == 3) {
-      interval = setTimeout(unvIntFunc, 16000);
+      interval = setTimeout(unvIntFunc, 25000);
     }
 
 
@@ -89,7 +88,6 @@ export default function animMov() {
         checkActive(element);
         checkAnimPos(element.dataset.inroom, element.dataset.inroom, element.dataset.img, element.dataset.imgempty, true);
         console.log(`In room: ${element.dataset.inroom}`);
-        firstBtn.removeAttribute('id');
       }
     });
 
@@ -124,7 +122,7 @@ export default function animMov() {
     //--------------------------Game Ended By Losing--------------------------//
     
     if (randomRoom == 6) {
-     clearTimeout(interval);
+      clearTimeout(interval);
       console.log("Interval Cleared")
       setTimeout(() => {
         soundArr.forEach(element => {
@@ -135,12 +133,6 @@ export default function animMov() {
       }, 5000);
       setTimeout(death, 10000);
     }
-
-    if (energy <= 0 || time1 >= 6 || puppetStage > 42) {
-      clearTimeout(interval);
-      console.log("Interval Cleared")
-    }
-
   }
   function death() {
     window.location.href = "index.html";
@@ -154,7 +146,7 @@ export default function animMov() {
       if (officecam == 1) {
         camSwitch.play();
       }
-      camImg.src = "./res/videos/static.gif";
+      camImg.src = "../res/videos/static.gif";
       console.log(inRoom + " asd" + randomRoomVal)
     }
       setTimeout(() => {
