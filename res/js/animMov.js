@@ -3,6 +3,7 @@ import { camImg, chDoorBool, doorVisibleL, doorVisibleR, honzakJumpScare, office
 export let randomRoom;
 export let roomVisible;
 const btns = document.getElementsByClassName("invBtn");
+const firstBtn = document.getElementById("firstBtn");
 
 export default function animMov() {
   let random;
@@ -88,6 +89,7 @@ export default function animMov() {
         checkActive(element);
         checkAnimPos(element.dataset.inroom, element.dataset.inroom, element.dataset.img, element.dataset.imgempty, true);
         console.log(`In room: ${element.dataset.inroom}`);
+        firstBtn.removeAttribute("id");
       }
     });
 
@@ -146,7 +148,7 @@ export default function animMov() {
       if (officecam == 1) {
         camSwitch.play();
       }
-      camImg.src = "../res/videos/static.gif";
+      camImg.src = "./res/videos/static.gif";
       console.log(inRoom + " asd" + randomRoomVal)
     }
       setTimeout(() => {
