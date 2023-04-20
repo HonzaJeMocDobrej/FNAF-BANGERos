@@ -58,8 +58,8 @@ frameTime = 2000;
 }
 else if (mode == 1) {
 energyDrain = 0.25;
-puppetTime = 1000;
-frameTime = 1000;
+puppetTime = 750;
+frameTime = 750;
 
 }
 
