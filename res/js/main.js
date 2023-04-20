@@ -69,12 +69,10 @@ start2.onmouseleave = () => {
 };
 
 start.onclick = () => {
-// setTimeout(helpWanted2(),5000);
 mode = 0;
 localStorage.setItem("mode", mode);
 }
 start2.onclick = () => {
-  // setTimeout(helpWanted2(),5000);
   mode = 1;
   localStorage.setItem("mode", mode);
   console.log("banger")
